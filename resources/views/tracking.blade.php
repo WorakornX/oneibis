@@ -48,11 +48,11 @@
 
 <body id="skrollr-body">
 
-<div class="container">
+<div class="container" id="app">
 
     <div class="section">
         <div class="row justify-content-center">
-            <div class="col-lg-10">
+            <div class="col-xl-10">
                 <div class="card text-white mb-3 p-4"
                      style="max-width: 1000px; max-height: 350px; border-radius: 10px; border: 1px solid white;background-image: linear-gradient(-45deg,#1488cc,#2b32b2);;">
                     <div class="card-body p-5">
@@ -203,13 +203,37 @@
     <div class="section" id="down">
         <div class="card border-light mb-3" style="max-width: 1000px; max-height: 350px; border-radius: 10px;">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15506.729472673203!2d100.54086285!3d13.6770681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd530dabdec1a4d73!2sThe%20Star%20Estate%20at%20Rama%20III!5e0!3m2!1sen!2sth!4v1609951357939!5m2!1sen!2sth"
+                src="https://maps.google.com/maps?q=13.6770681,100.5408628&hl=es&z=14&amp;output=embed"
+                {{--                src="https://maps.google.com/maps?q='+YOUR_LAT+','+YOUR_LON+'&hl=es&z=14&amp;output=embed"--}}
                 width="auto" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
     </div>
 </div>
 </body>
 <!--   core js files    -->
-<script src=" {{ mix('/js/landing.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+
+    new Vue({
+        el: '#app',
+
+        data: {
+            fleetData: [],
+        },
+
+        watch: {},
+
+
+        created() {
+        },
+
+        computed: {},
+
+        methods: {
+            
+        },
+    });
+</script>
 
 </html>
