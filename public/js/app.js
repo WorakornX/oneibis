@@ -75052,12 +75052,12 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/worakorn/Sites/Maintenance/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/worakorn/Sites/Maintenance/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/worakorn/Sites/Maintenance/resources/sass/landing-icon.scss */"./resources/sass/landing-icon.scss");
-__webpack_require__(/*! /Users/worakorn/Sites/Maintenance/resources/sass/material-dashboard-liff.scss */"./resources/sass/material-dashboard-liff.scss");
-__webpack_require__(/*! /Users/worakorn/Sites/Maintenance/resources/sass/syncfusion.scss */"./resources/sass/syncfusion.scss");
-module.exports = __webpack_require__(/*! /Users/worakorn/Sites/Maintenance/resources/sass/black-dashboard.scss */"./resources/sass/black-dashboard.scss");
+__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/landing-icon.scss */"./resources/sass/landing-icon.scss");
+__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/material-dashboard-liff.scss */"./resources/sass/material-dashboard-liff.scss");
+__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/syncfusion.scss */"./resources/sass/syncfusion.scss");
+module.exports = __webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/black-dashboard.scss */"./resources/sass/black-dashboard.scss");
 
 
 /***/ })

@@ -1,4 +1,4 @@
-@extends('layouts.material', ['class' => 'off-canvas-sidebar', 'activePage' => 'login', 'title' => __('EECL Group')])
+@extends('layouts.material', ['class' => 'off-canvas-sidebar', 'activePage' => 'login', 'title' => __('OneIBIS')])
 
 @section('content')
 <div class="container" style="height: auto;">
@@ -28,7 +28,7 @@
             </div>
           @endif
           <div class="card-body">
-            <p class="card-description text-center">{{ __('Contact ')}}<strong>admin@eecl.co.th</strong> {{ __('to get an account') }}</p>
+            <p class="card-description text-center">{{ __('Contact ')}}<strong>admin@oneibis.com</strong> {{ __('to get an account') }}</p>
             <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -76,13 +76,13 @@
       </form>
       <div class="row">
         <div class="col-6"></div>
-        <div class="col-6 text-right">
-            @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="text-light">
-                    <small>{{ __('Forgot password?') }}</small>
-                </a>
-            @endif
-        </div>
+{{--        <div class="col-6 text-right">--}}
+{{--            @if (Route::has('password.request'))--}}
+{{--                <a href="{{ route('password.request') }}" class="text-light">--}}
+{{--                    <small>{{ __('Forgot password?') }}</small>--}}
+{{--                </a>--}}
+{{--            @endif--}}
+{{--        </div>--}}
         {{--<div class="col-6 text-right">--}}
             {{--<a href="{{ route('register') }}" class="text-light">--}}
                 {{--<small>{{ __('Create new account') }}</small>--}}

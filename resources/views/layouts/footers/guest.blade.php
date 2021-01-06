@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container-fluid">
         <nav style="padding-left: 15px;" class="float-none">
-            © Copyright 2020 EEC LINE Co., Ltd. - All Rights Reserved
+            © 2021 OCEAN NETWORK EXPRESS - All Rights Reserved
         </nav>
         {{--<div class="copyright float-right">--}}
         {{--&copy;--}}

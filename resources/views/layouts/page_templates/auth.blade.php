@@ -1,5 +1,5 @@
 <div class="wrapper ">
-    @include('layouts.navbars.sidebar')
+{{--    @include('layouts.navbars.sidebar')--}}
     {{--    https://codepen.io/M-Jao/pen/VRjOZO--}}
     <div class="main-panel" :data="'blue'">
         @include('layouts.navbars.navs.auth')
