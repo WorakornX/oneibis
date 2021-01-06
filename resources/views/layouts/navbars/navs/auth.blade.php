@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
     <div class="container-fluid">
         <div class="navbar-wrapper">
-            <div class="navbar-minimize d-inline">
+            <div class="navbar-minimize d-inline" style="display: none;">
                 <button @click="$store.commit('navBarToggle')" class="minimize-sidebar btn btn-link btn-just-icon" rel="tooltip">
                     {{--                    <button id="minimizeSidebar" class="minimize-sidebar btn btn-link btn-just-icon" rel="tooltip" data-original-title="Sidebar toggle" data-placement="right">--}}
                     <i class="tim-icons icon-align-center visible-on-sidebar-regular"></i>

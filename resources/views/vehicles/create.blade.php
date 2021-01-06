@@ -9,38 +9,18 @@
 
     <div class="row">
 
-        <breadcrumb :data="[{'text':'Home','href':'/home'}, {'text':'Vehicle','href':'./'}]" active="Create"></breadcrumb>
+        <breadcrumb :data="[{'text':'Home','href':'/home'}, {'text':'Tracking No.','href':'./'}]" active="Create"></breadcrumb>
 
         <topbutton text="Back" link="./"></topbutton>
 
-        <wizard @submit="submit" title="Create Vehicle" description="Follow the process to add a new vehicle to our system.">
-            <wizard-tab name="fleet" icon="tim-icons icon-delivery-fast">
-                <h5 class="info-text"> Pick the fleet for our new Vehicle.</h5>
-
-                <v-form name="form">
-                    <pill-input placeholder="" field="fleet_id" url="fleet" optiontext="name" optionvalue="id"
-                                :vparam="['required']">
-                    </pill-input>
-                </v-form>
-
-            </wizard-tab>
-            <wizard-tab name="about" icon="tim-icons icon-bus-front-12">
-                <h5 class="info-text"> Let's start with the basic information.</h5>
+        <wizard @submit="submit" title="Create Tracking No." description="This process add a tracking no. to our system.">
+            <wizard-tab name="tracking" icon="tim-icons icon-delivery-fast">
+                <h5 class="info-text"> Let's fool our customer.</h5>
                 <v-form name="form" class="row justify-content-center mt-5">
-                    <div class="col-sm-5">
-                        <base-input placeholder="License" field="license" addon-left-icon="tim-icons icon-bus-front-12"
-                                    :vparam="['required']">
-                        </base-input>
-                    </div>
-                    <div class="col-sm-5">
-                        <base-input placeholder="Odometer" field="mileage" addon-left-icon="tim-icons icon-user-run"
+                    <div class="col-sm-10">
+                        <base-input placeholder="Tracking No" field="tracking_no" addon-left-icon="tim-icons icon-user-run"
                                     :vparam="[]">
                         </base-input>
-                    </div>
-                    <div class="col-sm-10">
-                        <select-box field="vehicle_type_id" placeholder="Vehicle Type" type="select"
-                                    url="setting/vehicle/type" optiontext="name" optionvalue="id" addon-left-icon="tim-icons icon-notes"
-                                    allowfilter="true" filtertype="contains" :vparam="['required']"></select-box>
                     </div>
                 </v-form>
             </wizard-tab>
@@ -72,10 +52,7 @@
                     'property': 'form',
                     'form': 'form',
                     'field': {
-                        license: null,
-                        fleet_id: null,
-                        vehicle_type_id: null,
-                        mileage: null,
+                        tracking_no: null,
                     }
                 });
             },
@@ -88,10 +65,10 @@
 
             methods: {
                 submit() {
-                    this.$store.dispatch('submit', {'form': 'form', 'url': '/api/vehicle', 'reset': true})
+                    this.$store.dispatch('submit', {'form': 'form', 'url': '/api/tracking', 'reset': true})
                         .then(response => {
                             console.log(response);
-                            Swal.fire('Complete!', 'Vehicle has been successfully created.', 'success')
+                            Swal.fire('Complete!', 'Tracking No has been successfully created.', 'success')
                         });
                 }
             },

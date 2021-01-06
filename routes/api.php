@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::resource('inventory', 'API\InventoryController');
+Route::resource('tracking', 'API\TrackingController');
+Route::resource('info', 'API\InfoController');
 Route::resource('image_track', 'API\ImageTrackController');
 Route::resource('customer', 'API\CustomerController');
 Route::resource('image_track_report', 'API\ImageTrackReportController');
@@ -49,6 +51,13 @@ Route::resource('trip_rate', 'API\TripRateController');
 Route::resource('incentive', 'API\IncentiveController');
 Route::resource('job', 'API\JobController');
 Route::resource('whtax', 'API\WHTaxController');
+
+Route::name('tracking.')->prefix('tracking')->group(function () {
+    $controller = 'API\TrackingController';
+    Route::name('crud.')->prefix('crud')->group(function () use ($controller) {
+        Route::post('search', $controller . '@search')->name('search');
+    });
+});
 
 Route::name('job.')->prefix('job')->group(function () {
     $controller = 'API\JobController';

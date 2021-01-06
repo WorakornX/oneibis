@@ -28,7 +28,7 @@
             validateForm() {
                 this.anyError = false;
                 this.inputs.forEach((input) => {
-                    if (input.$options.name !== 'base-button') {
+                    if (input.$options.name !== 'base-button' && input.$options.name !== 'VueTimepicker') {
                         input.checkValidateError();
                         input.forceShowError = true;
                         this.anyError = (this.anyError || input.isInvalid);

@@ -39,6 +39,16 @@
                     aria-describedby="addon-right addon-left"
                 />
 
+                <input
+                    v-if="(type === 'upper')"
+                    v-model="value"
+                    v-bind="$attrs"
+                    v-on="listeners"
+                    class="form-control"
+                    style="text-transform: uppercase;"
+                    aria-describedby="addon-right addon-left"
+                />
+
                 <input v-if="(type === 'number')" type="number" pattern="[0-9]*" v-model="value"
                        v-bind="$attrs"
                        v-on="listeners"
