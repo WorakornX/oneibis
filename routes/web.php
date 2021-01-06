@@ -28,6 +28,10 @@ Route::get('imageTrackJob', 'LiffController@imageTrackJob');
 Route::get('/', function () {
     return view('landing');
 });
+
+Route::get('/tracking', function () {
+    return view('tracking');
+});
 //Route::get('/', 'Auth\LoginController@showLoginForm');
 Auth::routes();
 
