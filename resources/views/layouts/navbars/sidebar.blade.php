@@ -21,6 +21,8 @@
 
             <side title="Tracking No" icon="eec-icons icon-delivery" href="{{ route('tracking.index') }}" page="indexVehicle" activepage="{{ $activePage }}"></side>
 
+            <side title="Movement" icon="eec-icons icon-delivery" href="{{ route('movement.index') }}" page="indexCustomer" activepage="{{ $activePage }}"></side>
+
 
         </ul>
     </div>

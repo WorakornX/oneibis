@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'indexCustomer', 'titlePage' => __('Edit Customer')])
+@extends('layouts.app', ['activePage' => 'indexCustomer', 'titlePage' => __('Edit Movement')])
 
 @section('style')
 
@@ -9,53 +9,33 @@
 
     <div class="row">
 
-        <breadcrumb :data="[{'text':'Home','href':'/home'}, {'text':'Customer','href':'/customer'}]" active="Edit"></breadcrumb>
+        <breadcrumb :data="[{'text':'Home','href':'#'}, {'text':'Movement','href':'/movement'}]" active="Edit"></breadcrumb>
 
-        <topbutton text="Back" link="/customer"></topbutton>
+        <topbutton text="Back" link="/movement"></topbutton>
 
-        <wizard @update="update" title="Edit Customer" description="Edit an existing customer in our system.">
-            <wizard-tab name="fleet" icon="tim-icons icon-delivery-fast">
-                <h5 class="info-text"> Change the fleet of our new Customer.</h5>
-
-                <v-form name="customer">
-                    <pill-input placeholder="" field="fleet_id" url="fleet" optiontext="name" optionvalue="id"
-                                :vparam="['required']">
-                    </pill-input>
-                </v-form>
-
-            </wizard-tab>
+        <wizard @update="update" title="Edit Movement" description="Edit an existing movement in our system.">
             <wizard-tab name="about" icon="tim-icons icon-istanbul">
-                <h5 class="info-text"> Let's start with the basic information.</h5>
-                <v-form name="customer" class="row justify-content-center mt-5">
+                <h5 class="info-text"> Fill in to create fake movement.</h5>
+                <v-form name="movement" class="row justify-content-center mt-5">
                     <div class="col-sm-5">
-                        <base-input placeholder="Company Name" field="name" addon-left-icon="tim-icons icon-istanbul"
+                        <base-input placeholder="Place" field="place" addon-left-icon="tim-icons icon-istanbul"
                                     :vparam="['required']">
                         </base-input>
                     </div>
                     <div class="col-sm-5">
-                        <base-input placeholder="Company Name (Thai)" field="nameTH" addon-left-icon="tim-icons icon-caps-small"
+                        <base-input placeholder="Event" field="event" addon-left-icon="tim-icons icon-caps-small"
                                     :vparam="['required']">
                         </base-input>
                     </div>
                     <div class="col-sm-5">
-                        <base-input placeholder="Email" field="email" addon-left-icon="tim-icons  icon-email-85"
-                                    :vparam="['email']">
+                        <base-input placeholder="Carrier" field="carrier" addon-left-icon="tim-icons  icon-email-85"
+                                    :vparam="['required']">
                         </base-input>
                     </div>
                     <div class="col-sm-5">
-                        <base-input placeholder="Phone" field="phone" addon-left-icon="tim-icons icon-mobile"
-                                    :vparam="['integer', {'minLength': 10}]">
-                        </base-input>
-                    </div>
-                </v-form>
-            </wizard-tab>
-            <wizard-tab name="account" icon="tim-icons icon-settings-gear-63">
-                <h5 class="info-text"> Lastly, Select a LINE Group for this customer.</h5>
-                <v-form name="customer" class="row justify-content-center mt-5">
-                    <div class="col-sm-10">
-                        <select-box field="line_group_id" placeholder="LINE Group" type="select"
-                                    url="line/group" optiontext="name" optionvalue="id" addon-left-icon="tim-icons icon-chat-33"
-                                    allowfilter="true" filtertype="contains" :vparam="['required']"></select-box>
+                        <base-datepicker placeholder="Date" field="date" addon-left-icon="eec-icons icon-clock"
+                                         :vparam="['required']">
+                        </base-datepicker>
                     </div>
                 </v-form>
             </wizard-tab>
@@ -82,22 +62,19 @@
 
             created() {
                 this.$store.dispatch('populateForm', {
-                    'form': 'customer',
-                    'property': 'customer',
+                    'form': 'movement',
+                    'property': 'movement',
                     'field': {
-                        name: null,
-                        nameTH: null,
-                        lastName: null,
-                        phone: null,
-                        email: null,
-                        line_group_id: null,
-                        fleet_id: null,
+                        date: null,
+                        event: null,
+                        place: null,
+                        carrier: null,
                     }
                 });
             },
 
             mounted() {
-                this.$store.dispatch('populateEditForm', {'form': 'customer', 'id': this.id});
+                this.$store.dispatch('populateEditForm', {'form': 'movement', 'id': this.id});
             },
 
             computed: {
@@ -109,9 +86,9 @@
 
             methods: {
                 update() {
-                    this.$store.dispatch('update', {'form': 'customer', 'url': '/api/customer/'+ this.id})
+                    this.$store.dispatch('update', {'form': 'movement', 'url': '/api/movement/'+ this.id})
                         .then(response => {
-                            Swal.fire('Updated!', 'Customer has been successfully updated.', 'success')
+                            Swal.fire('Updated!', 'Movement has been successfully updated.', 'success')
                         });
                 }
             },

@@ -17,7 +17,7 @@ Route::resource('inventory', 'API\InventoryController');
 Route::resource('tracking', 'API\TrackingController');
 Route::resource('info', 'API\InfoController');
 Route::resource('image_track', 'API\ImageTrackController');
-Route::resource('customer', 'API\CustomerController');
+Route::resource('movement', 'API\MovementController');
 Route::resource('image_track_report', 'API\ImageTrackReportController');
 Route::resource('image_track_report_job', 'API\ImageTrackJobController');
 Route::resource('location', 'API\LocationController');
@@ -56,6 +56,13 @@ Route::name('tracking.')->prefix('tracking')->group(function () {
     $controller = 'API\TrackingController';
     Route::name('crud.')->prefix('crud')->group(function () use ($controller) {
         Route::post('search', $controller . '@search')->name('search');
+    });
+});
+
+Route::name('movement.')->prefix('movement')->group(function () {
+    $controller = 'API\MovementController';
+    Route::name('crud.')->prefix('crud')->group(function () use ($controller) {
+        Route::get('all', $controller . '@all')->name('all');
     });
 });
 
