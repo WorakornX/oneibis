@@ -126,7 +126,7 @@
                                         <div class="col">
                                             <i class="tracking-icon icon-opening-times"></i>
                                             Estimated time of arrival (ETA):
-                                            <div>
+                                            <div style="color: #f6e05e;">
                                                 @{{ detail.eta }}
                                             </div>
                                         </div>
