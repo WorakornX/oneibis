@@ -769,11 +769,11 @@
                                 .then(response => {
                                     this.loading = false;
                                     console.log(response.data.data);
-                                    // if (!response.data.data) {
-                                    //     swal("Error", "Incorrect Tracking Number!", "error");
-                                    // }else{
-                                    //     window.location.href = "/container_tracking/"+response.data.data;
-                                    // }
+                                    if (!response.data.data) {
+                                        swal("Error", "Incorrect Tracking Number!", "error");
+                                    }else{
+                                        window.location.href = "/container_tracking/"+response.data.data;
+                                    }
                                     resolve(response.data);
                                 })
                                 .catch(error => {
