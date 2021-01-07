@@ -7,7 +7,6 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Info as Model;
-use PhpParser\Node\Expr\AssignOp\Mod;
 
 
 class InfoController extends BaseController
