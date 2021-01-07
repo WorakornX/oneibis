@@ -59,6 +59,14 @@ Route::name('tracking.')->prefix('tracking')->group(function () {
     });
 });
 
+Route::name('info.')->prefix('info')->group(function () {
+    $controller = 'API\InfoController';
+    Route::name('crud.')->prefix('crud')->group(function () use ($controller) {
+        Route::get('activate/{id}', $controller . '@activate')->name('activate');
+        Route::get('get_current', $controller . '@getCurrent')->name('get_current');
+    });
+});
+
 Route::name('job.')->prefix('job')->group(function () {
     $controller = 'API\JobController';
     Route::get('{id}/edit', $controller . '@edit')->name('edit');

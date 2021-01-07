@@ -28,7 +28,7 @@
                 <h5 class="info-text"> Set departure time and place.</h5>
 
                 <v-form name="driver" class="row justify-content-center mt-5">
-                    <div class="col-sm-10">
+                    <div class="col-sm-5">
                         <base-input placeholder="Depart From" field="from" addon-left-icon="tim-icons icon-single-02"
                                     :vparam="['required']">
                         </base-input>
@@ -38,12 +38,6 @@
                                          :vparam="['required']">
                         </base-datepicker>
                     </div>
-                    <div class="col-sm-5">
-                        <vue-timepicker v-model="depart_time"></vue-timepicker>
-{{--                        <base-input placeholder="Depart Time" field="depart_time" addon-left-icon="eec-icons icon-clock"--}}
-{{--                                         :vparam="['required']">--}}
-{{--                        </base-input>--}}
-                    </div>
                 </v-form>
 
             </wizard-tab>
@@ -51,7 +45,7 @@
                 <h5 class="info-text"> Set arrival time and place.</h5>
 
                 <v-form name="driver" class="row justify-content-center mt-5">
-                    <div class="col-sm-10">
+                    <div class="col-sm-5">
                         <base-input placeholder="Arrive At" field="to" addon-left-icon="tim-icons icon-single-02"
                                     :vparam="['required']">
                         </base-input>
@@ -60,9 +54,6 @@
                         <base-datepicker placeholder="ETA Date" field="eta" addon-left-icon="eec-icons icon-clock"
                                          :vparam="['required']">
                         </base-datepicker>
-                    </div>
-                    <div class="col-sm-5">
-                        <vue-timepicker v-model="eta_time"></vue-timepicker>
                     </div>
                 </v-form>
 
@@ -100,17 +91,9 @@
 
             data: {
                 fleetData: [{'text': 'Mapkha', 'value': 1}, {'text': 'Laem Chabang', 'value': 3}, {'text': 'Suksawat', 'value': 2}],
-                depart_time: null,
-                eta_time: null,
             },
 
             watch: {
-                depart_time(newValue, oldValue) {
-                    this.$store.commit('updateForm', {'form': 'driver', 'field': 'depart_time', 'value': newValue});
-                },
-                eta_time(newValue, oldValue) {
-                    this.$store.commit('updateForm', {'form': 'driver', 'field': 'eta_time', 'value': newValue});
-                }
             },
 
 
@@ -122,10 +105,8 @@
                         lat: null,
                         lng: null,
                         depart: null,
-                        depart_time: null,
                         from: null,
                         eta: null,
-                        eta_time: null,
                         to: null,
                     }
                 });
@@ -143,7 +124,7 @@
                     this.$store.dispatch('submit', {'form': 'driver', 'url': '/api/info', 'reset': true})
                         .then(response => {
                             console.log(response);
-                            Swal.fire('Complete!', 'Driver has been successfully created.', 'success')
+                            Swal.fire('Complete!', 'Info has been successfully created.', 'success')
                         });
                 }
             },

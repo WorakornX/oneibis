@@ -17,10 +17,11 @@ class CreateInfosTable extends Migration
             $table->id();
             $table->decimal('lat', 10, 7);
             $table->decimal('lng', 10, 7);
-            $table->dateTime('eta');
-            $table->dateTime('depart');
+            $table->date('eta');
+            $table->date('depart');
             $table->string('from');
             $table->string('to');
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }

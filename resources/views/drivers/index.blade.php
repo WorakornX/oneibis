@@ -20,7 +20,7 @@
 
             <cardbody>
 
-                <darktable  property="info" :columns="tableColumn">
+                <darktable @customclick="activate($event)"  property="info" :columns="tableColumn">
 
                 </darktable>
 
@@ -51,6 +51,8 @@
                     {'text': 'Depart Time', 'data': 'depart'},
                     {'text': 'Arrive At', 'data': 'to'},
                     {'text': 'ETA', 'data': 'eta'},
+                    {'text': 'Active', 'type': 'boolean', 'data': 'is_active', 'align': 'center'},
+                    {'text': 'Activate', 'type': 'custom', 'icon': 'tim-icons icon-button-power', 'align': 'center', 'if': 'is_active', 'tooltip': 'Activate'},
                     {'text': 'Edit', 'type': 'action', 'data': 'phone', 'align': 'center', 'notSortable': true},
                 ],
                 rowIsSelected: false,
@@ -83,47 +85,25 @@
             methods: {
 
                 refresh() {
-                    this.$store.dispatch('getTableData', {'property': 'driver', 'is_group': true});
+                    this.$store.dispatch('getTableData', {'property': 'info', 'is_group': false});
                 },
-                refreshAvatar() {
+                activate(id) {
                     this.$store.commit('loading', true);
                     return new Promise((resolve, reject) => {
-                        axios.get('/api/driver/crud/refreshProfileAvatar')
+                        axios.get('/api/info/crud/activate/' + id)
                             .then(response => {
-
                                 this.$store.commit('loading', false);
-                                this.$store.dispatch('getTableData', {'property': 'driver', 'is_group': true});
-                                console.log(response.data);
+                                this.refresh();
+                                // console.log(response.data);
                                 resolve(response.data);
                             })
                             .catch(error => {
+                                this.$store.commit('loading', false);
                                 console.log(error);
                                 reject(error.response);
                             });
                     });
-
-                },
-
-                deleteData(id) {
-                    if (confirm('{{ __("Are you sure you want to delete this driver?") }}')) {
-                        return new Promise((resolve, reject) => {
-                            axios.delete('/api/driver/' + id)
-                                .then(response => {
-                                    notify('Driver deleted successfully', 'warning');
-                                    this.drivers.get();
-                                    console.log(response.data);
-                                    resolve(response.data);
-                                })
-                                .catch(error => {
-                                    console.log(error);
-                                    reject(error.response);
-                                });
-                        });
-
-                    } else {
-                        console.log('no');
-                    }
-                },
+                }
             },
         });
     </script>
