@@ -427,13 +427,9 @@
         el: '#app',
 
         data: {
-            lat: 13.6747792,
-            lng: 100.5325663,
-            from: 'Rotterdam',
-            to: 'Jebel Ali',
-            eta: 'Thu, Jan. 14, 2021',
             windowWidth: window.innerWidth,
             detail: null,
+            trackingDetail: null,
             loading: false,
             speed: null,
             movement: null,
@@ -445,6 +441,7 @@
         created() {
             this.getDetail();
             this.getMovement();
+            this.getTrackingDetail();
         },
 
         mounted() {
