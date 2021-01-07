@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+            integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="{{ mix('css/landing-font.css') }}">
     <link rel="stylesheet" href="{{ mix('css/landing-icon.css') }}">
     <style>
@@ -43,12 +46,54 @@
             }
         }
 
+
+        .loader-20 > div {
+            width: 100%;
+        }
+
+        .loader-20 div > div span {
+            position: fixed;
+            display: inline-block;
+            height: 2px;
+            width: 100%;
+            border-radius: 50px;
+            background-color: #0889FB;
+            overflow: hidden;
+            z-index: 10002;
+        }
+
+        .loader-20 > div > div span:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background-image: linear-gradient(to right, transparent, #333, transparent);
+            animation: 0.7s moving_03 ease-in-out infinite;
+        }
+
+        @keyframes moving_03 {
+            0% {
+                left: -30%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
     </style>
 </head>
 
 <body id="skrollr-body">
 
 <div id="app">
+    <div class="loader loader-20" v-if="loading">
+        <div>
+            <div>
+                <span></span>
+            </div>
+        </div>
+    </div>
 
     <nav aria-label="breadcrumb" style="background-color: #e9ecef">
         <div class="container">
@@ -59,7 +104,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" v-if="detail">
 
         <div class="row section">
             <div :class="[windowWidth > 1000 ? 'col-8' : 'col-12']">
@@ -69,20 +114,20 @@
                             <div class="card text-white mb-3 p-4"
                                  style="max-width: 1000px; max-height: 350px; border-radius: 10px; border: 1px solid white;background-image: linear-gradient(-45deg,#1488cc,#2b32b2);;">
                                 <div class="card-body p-5">
-                                    <h3 class="card-title text-center mb-5">Vessel departed ROTTERDAM on Dec. 17, 2020, 2:18 a.m.</h3>
+                                    <h3 class="card-title text-center mb-5">Vessel departed @{{ detail.from }} on @{{ detail.depart }}, 2:18 a.m.</h3>
                                     <div class="row">
                                         <div class="col" style="border-right: 1px solid white">
                                             <i class="tracking-icon icon-square-pin"></i>
                                             Route:
                                             <div>
-                                                @{{ from }} -> @{{ to }}
+                                                @{{ detail.from }} -> @{{ detail.to }}
                                             </div>
                                         </div>
                                         <div class="col">
                                             <i class="tracking-icon icon-opening-times"></i>
                                             Estimated time of arrival (ETA):
                                             <div>
-                                                @{{ eta }}
+                                                @{{ detail.eta }}
                                             </div>
                                         </div>
                                     </div>
@@ -111,7 +156,7 @@
                                         <span class="ml-1">LIVE MAP</span>
                                     </a>
                                 </button>
-                                <button type="button" class="btn btn-outline-primary" style="width: 100px;">
+                                <button @click="refresh()" type="button" class="btn btn-outline-primary" style="width: 100px;">
                                     <i class="tracking-icon icon-loop mt-1"></i>
                                     <span class="ml-1">UPDATE</span>
                                 </button>
@@ -119,12 +164,18 @@
                         </div>
                     </div>
                     <div class="card border-light mb-3" style="max-width: 1000px; max-height: 350px; border-radius: 10px;">
+                        <div class="card-header">Description</div>
                         <div class="card-body row">
-                            <div class="col-9">
-                                <h5 class="card-title">Let us notify you on every new updates of this shipments.</h5>
-                            </div>
-                            <div class="col text-right">
-                                <button type="button" class="btn btn-primary"><span>SEND ME UPDATE</span></button>
+                            <div class="col">
+                                <div class="card-title">
+                                    The current position of <b>ONE IBIS</b> is at coordinates <b>@{{ detail.lat }} N</b> / <b>@{{ detail.lng }} E</b>, reported an hour ago by AIS.
+                                    The vessel is en route to the port of <b>@{{ detail.from }}</b>, sailing speed <b>@{{ getRandomArbitrary(20,21).toFixed(1) }}</b> knots and expected
+                                    to arrive there on <b>@{{ detail.eta }}</b>.
+                                </div>
+                                <div>
+                                    The vessel <b>ONE IBIS</b>(IMO: 9741384, MMSI 374815000) is a Container Ship built in 2016 (4 years old) and currently sailing under the flag
+                                    <b>Panama</b>.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -214,7 +265,7 @@
                 <div class="section" id="down">
                     <div class="card border-light mb-3" style="max-width: 1000px; max-height: 350px; border-radius: 10px;">
                         <iframe
-                            :src="'https://maps.google.com/maps?q=' + lat + ',' + lng + '&hl=es&z=14&amp;output=embed'"
+                            :src="'https://maps.google.com/maps?q=' + detail.lat + ',' + detail.lng + '&hl=es&z=14&amp;output=embed'"
                             {{--                src="https://maps.google.com/maps?q='+YOUR_LAT+','+YOUR_LON+'&hl=es&z=14&amp;output=embed"--}}
                             width="auto" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
@@ -354,14 +405,16 @@
             to: 'Jebel Ali',
             eta: 'Thu, Jan. 14, 2021',
             windowWidth: window.innerWidth,
+            detail: null,
+            loading: false,
+            speed: null
         },
 
-        watch: {
-
-        },
+        watch: {},
 
 
         created() {
+            this.getDetail();
         },
 
         mounted() {
@@ -375,11 +428,43 @@
         },
 
         methods: {
+            getRandomArbitrary(min, max) {
+                return Math.random() * (max - min) + min;
+            },
+            refresh() {
+                this.loading = true;
+                new Promise(function (resolve, reject) {
+                    setTimeout(function () {
+                        resolve('foo');
+                    }, 3000);
+                })
+                    .then(response => {
+                        this.loading = false;
+                        resolve(response.data);
+                    })
+
+            },
+            getDetail() {
+                return new Promise((resolve, reject) => {
+                    axios.get('/api/info/crud/get_current', {})
+                        .then(response => {
+                            this.detail = response.data.data;
+                            console.log(response.data);
+                            resolve(response.data);
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            reject(error.response);
+                        });
+                });
+
+            },
             onResize() {
                 this.windowWidth = window.innerWidth
             }
         },
-    });
+    })
+    ;
 </script>
 
 </html>
