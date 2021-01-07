@@ -282,3 +282,27 @@ icons
     content: "\ea2d";
 }
 
+.icon-tags-stack::before {
+    content: "\ea2e";
+}
+
+.icon-distance::before {
+    content: "\ea2f";
+}
+
+.icon-calendar-event-2::before {
+    content: "\ea30";
+}
+
+.icon-take-off::before {
+    content: "\ea31";
+}
+
+.icon-landing::before {
+    content: "\ea32";
+}
+
+.icon-pin-3::before {
+    content: "\ea33";
+}
+

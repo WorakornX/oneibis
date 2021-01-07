@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <link rel="shortcut icon" href="/eecl-logo-1-color-02.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/oneibis.png"  type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
     <title>One Tracking</title>
@@ -194,69 +194,72 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">Fri, January 15, 2021</th>
-                                <td>JEBEL ALI</td>
-                                <td>Empty container will be returned</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Fri, January 15, 2021</th>
-                                <td>JEBEL ALI</td>
-                                <td>Container will be delivered to consignee</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Thu, January 14, 2021</th>
-                                <td>JEBEL ALI</td>
-                                <td>Container will be discharged from the vessel</td>
+                            <tr v-for="(m,index) in movement" :key="index">
+                                <th scope="row">@{{ m.date }}</th>
+                                <td>@{{ m.place }}</td>
+                                <td>@{{ m.event }}</td>
                                 <td>
-                                    <i class="tracking-icon icon-boat-front mt-1"></i>
-                                    HMM ALGECIRAS
+                                    <i v-if="m.carrier" class="tracking-icon icon-boat-front mt-1"></i>
+                                    @{{ m.carrier }}
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">Fri, January 15, 2021</th>
-                                <td>JEBEL ALI</td>
-                                <td>Vessel will be under operation</td>
-                                <td>
-                                    <i class="tracking-icon icon-boat-front mt-1"></i>
-                                    HMM ALGECIRAS
-                                </td>
-                            </tr>
-                            <tr class="table-warning">
-                                <th scope="row">Wed, December 16, 2020</th>
-                                <td>ROTTERDAM</td>
-                                <td>Vessel departure time from this port</td>
-                                <td>
-                                    <i class="tracking-icon icon-boat-front mt-1"></i>
-                                    HMM ALGECIRAS
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Tue, December 15, 2020</th>
-                                <td>ROTTERDAM</td>
-                                <td>Container was loaded on the vessel</td>
-                                <td>
-                                    <i class="tracking-icon icon-boat-front mt-1"></i>
-                                    HMM ALGECIRAS
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Tue, December 08, 2020</th>
-                                <td>ROTTERDAM</td>
-                                <td>Container was located at this place</td>
-                                <td>
-                                    <i class="tracking-icon icon-boat-front mt-1"></i>
-                                    HMM ALGECIRAS
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Mon, December 07, 2020</th>
-                                <td>ANTWERP</td>
-                                <td>Empty container was released to shipper for stuffing</td>
-                                <td></td>
-                            </tr>
+{{--                            <tr>--}}
+{{--                                <th scope="row">Fri, January 15, 2021</th>--}}
+{{--                                <td>JEBEL ALI</td>--}}
+{{--                                <td>Container will be delivered to consignee</td>--}}
+{{--                                <td></td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">Thu, January 14, 2021</th>--}}
+{{--                                <td>JEBEL ALI</td>--}}
+{{--                                <td>Container will be discharged from the vessel</td>--}}
+{{--                                <td>--}}
+{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+{{--                                    HMM ALGECIRAS--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">Fri, January 15, 2021</th>--}}
+{{--                                <td>JEBEL ALI</td>--}}
+{{--                                <td>Vessel will be under operation</td>--}}
+{{--                                <td>--}}
+{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+{{--                                    HMM ALGECIRAS--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            <tr class="table-warning">--}}
+{{--                                <th scope="row">Wed, December 16, 2020</th>--}}
+{{--                                <td>ROTTERDAM</td>--}}
+{{--                                <td>Vessel departure time from this port</td>--}}
+{{--                                <td>--}}
+{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+{{--                                    HMM ALGECIRAS--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">Tue, December 15, 2020</th>--}}
+{{--                                <td>ROTTERDAM</td>--}}
+{{--                                <td>Container was loaded on the vessel</td>--}}
+{{--                                <td>--}}
+{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+{{--                                    HMM ALGECIRAS--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">Tue, December 08, 2020</th>--}}
+{{--                                <td>ROTTERDAM</td>--}}
+{{--                                <td>Container was located at this place</td>--}}
+{{--                                <td>--}}
+{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+{{--                                    HMM ALGECIRAS--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">Mon, December 07, 2020</th>--}}
+{{--                                <td>ANTWERP</td>--}}
+{{--                                <td>Empty container was released to shipper for stuffing</td>--}}
+{{--                                <td></td>--}}
+{{--                            </tr>--}}
                             </tbody>
                         </table>
                     </div>
@@ -407,7 +410,8 @@
             windowWidth: window.innerWidth,
             detail: null,
             loading: false,
-            speed: null
+            speed: null,
+            movement: null,
         },
 
         watch: {},
@@ -415,6 +419,7 @@
 
         created() {
             this.getDetail();
+            this.getMovement();
         },
 
         mounted() {
@@ -449,6 +454,21 @@
                     axios.get('/api/info/crud/get_current', {})
                         .then(response => {
                             this.detail = response.data.data;
+                            console.log(response.data);
+                            resolve(response.data);
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            reject(error.response);
+                        });
+                });
+
+            },
+            getMovement() {
+                return new Promise((resolve, reject) => {
+                    axios.get('/api/movement/crud/all', {})
+                        .then(response => {
+                            this.movement = response.data.data;
                             console.log(response.data);
                             resolve(response.data);
                         })

@@ -89,7 +89,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('broker', 'BrokerController');
     Route::resource('vendors', 'VendorController');
-    Route::resource('customer', 'CustomerController');
+    Route::resource('movement', 'CustomerController');
     Route::resource('location', 'LocationController');
     Route::resource('whtax', 'WHTaxController');
 
