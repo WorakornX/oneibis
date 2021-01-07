@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\API\TrackingController;
 use Illuminate\Http\Request;
 
 class TrackingPageController extends Controller
@@ -45,9 +46,10 @@ class TrackingPageController extends Controller
      */
     public function show($id)
     {
-        $trackingController = new TrackingPageController();
-
-        return view('tracking')->with($trackingController->show($id));
+        return view('tracking');
+//        $trackingController = new TrackingController();
+//
+//        return view('tracking')->with($trackingController->show($id));
     }
 
     /**

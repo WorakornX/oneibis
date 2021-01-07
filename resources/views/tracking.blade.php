@@ -207,7 +207,7 @@
                 </div>
 
                 <div class="section">
-                    <h4>Container {{$tracking_number}} movements</h4>
+                    <h4>Container  movements</h4>
                     <div class="card border-light mb-3" style="max-width: 1000px; border-radius: 10px;">
                         <table class="table table-striped">
                             <thead>
