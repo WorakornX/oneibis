@@ -17,7 +17,7 @@
             <wizard-tab name="departure" icon="eec-icons icon-take-off">
                 <h5 class="info-text"> Set departure time and place.</h5>
 
-                <v-form name="driver" class="row justify-content-center mt-5">
+                <v-form name="info" class="row justify-content-center mt-5">
                     <div class="col-sm-5">
                         <base-input placeholder="Depart From" field="from" addon-left-icon="eec-icons icon-pin-3"
                                     :vparam="['required']">
@@ -34,7 +34,7 @@
             <wizard-tab name="arrival" icon="eec-icons icon-landing">
                 <h5 class="info-text"> Set arrival time and place.</h5>
 
-                <v-form name="driver" class="row justify-content-center mt-5">
+                <v-form name="info" class="row justify-content-center mt-5">
                     <div class="col-sm-5">
                         <base-input placeholder="Arrive At" field="to" addon-left-icon="eec-icons icon-pin-3"
                                     :vparam="['required']">
@@ -50,7 +50,7 @@
             </wizard-tab>
             <wizard-tab name="location" icon="eec-icons icon-pin-3">
                 <h5 class="info-text"> Lastly, Set Current Location of the ship.</h5>
-                <v-form name="driver" class="row justify-content-center mt-5">
+                <v-form name="info" class="row justify-content-center mt-5">
                     <div class="col-sm-5">
                         <base-input placeholder="Latitude" field="lat" addon-left-icon="eec-icons icon-clock"
                                     :vparam="['required']">
