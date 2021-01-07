@@ -45,6 +45,8 @@ $icon-calendar-event-2: unicode(ea30);
 $icon-take-off: unicode(ea31);
 $icon-landing: unicode(ea32);
 $icon-pin-3: unicode(ea33);
+$icon-tags-stack-2: unicode(ea34);
+$icon-distance-2: unicode(ea35);
 
 .icon-chart-pie-36-2::before {
   content: $icon-chart-pie-36-2;
@@ -204,5 +206,13 @@ $icon-pin-3: unicode(ea33);
 
 .icon-pin-3::before {
   content: $icon-pin-3;
+}
+
+.icon-tags-stack-2::before {
+  content: $icon-tags-stack-2;
+}
+
+.icon-distance-2::before {
+  content: $icon-distance-2;
 }
 

@@ -76,9 +76,9 @@
                         <li class="nav-link">
                             <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('Profile') }}</a>
                         </li>
-                        <li class="nav-link">
-                            <a href="javascript:void(0)" class="nav-item dropdown-item">{{ __('Settings') }}</a>
-                        </li>
+{{--                        <li class="nav-link">--}}
+{{--                            <a href="javascript:void(0)" class="nav-item dropdown-item">{{ __('Settings') }}</a>--}}
+{{--                        </li>--}}
                         <li class="dropdown-divider"></li>
                         <li class="nav-link">
                             <a href="{{ route('logout') }}" class="nav-item dropdown-item"

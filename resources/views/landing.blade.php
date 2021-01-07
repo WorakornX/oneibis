@@ -32,6 +32,53 @@
             margin-top: 5px !important;
         }
 
+
+        .loader-20 > div {
+            width: 100%;
+        }
+
+        .loader-20 div > div span {
+            position: fixed;
+            display: inline-block;
+            height: 2px;
+            width: 100%;
+            border-radius: 50px;
+            background-color: #0889FB;
+            overflow: hidden;
+            z-index: 10002;
+        }
+
+        .loader-20 > div > div span:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background-image: linear-gradient(to right, transparent, #333, transparent);
+            animation: 0.7s moving_03 ease-in-out infinite;
+        }
+
+        @keyframes moving_03 {
+            0% {
+                left: -30%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .icon-container
+        {
+            opacity: 0.5;
+            width: 150px;
+            height: 120px;
+            background-color: #44444460;
+            border: 2px solid #888888;
+            border-radius: 10px;
+            padding: 10px;
+            color: #ffffff;
+        }
+
         .c-active {
             cursor: pointer;
             width: 150px;
@@ -69,39 +116,113 @@
             width: 350px;
         }
 
-        .loader-20 > div {
-            width: 100%;
+        .icon-font
+        {
+            font-size: 58px;
         }
 
-        .loader-20 div > div span {
-            position: fixed;
-            display: inline-block;
-            height: 2px;
-            width: 100%;
-            border-radius: 50px;
-            background-color: #0889FB;
-            overflow: hidden;
-            z-index: 10002;
+        .header-cont
+        {
+            font-size: 36px;
         }
-
-        .loader-20 > div > div span:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 40%;
-            height: 100%;
-            background-image: linear-gradient(to right, transparent, #333, transparent);
-            animation: 0.7s moving_03 ease-in-out infinite;
+        .sub-font
+        {
+            font-size: 14px;
+            margin-bottom: 40px;
         }
-
-        @keyframes moving_03 {
-            0% {
-                left: -30%;
+        .icon-group
+        {
+            display: flex;
+            justify-content: center;
+        }
+        .chose
+        {
+            padding-left: 25px;
+            margin-left: -5px;
+            width: 230px;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            border-left: 1px solid #eeeeee;
+        }
+        .bordx
+        {
+            padding: 15px;
+            background-color: #00000080;
+            border-radius: 15px;
+        }
+        .butto {
+            margin-left: 10px;
+            padding: 0;
+            color: white;
+            width: 200px;
+            background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.77) 1%, #cc972e 91%);
+        }
+        @media only screen and (max-width: 440px) {
+            .icon-container {
+                width: 100px;
+                height: 90px;
+                font-size: 13px;
             }
-            100% {
-                left: 100%;
+            .c-active {
+                width: 100px;
+                height: 90px;
+                font-size: 13px;
+            }
+            .c-normal {
+                width: 100px;
+                height: 90px;
+                font-size: 13px;
+            }
+            .icon-font
+            {
+                font-size: 40px;
+            }
+
+            .header-cont
+            {
+                margin-top: 50px;
+                font-size: 26px;
+            }
+
+            .sub-font
+            {
+                font-size: 10px;
+            }
+
+            .icon-group
+            {
+                margin-top: 20px;
+            }
+
+            .c-input {
+                color: #222222;
+                height: 55px;
+                font-size: 13px;
+                border: none;
+                outline: none;
+                border-radius: 10px;
+                padding-left: 30px;
+                width: 210px;
+            }
+            .chose
+            {
+                padding-left: 25px;
+                margin-left: -5px;
+                width: 100px;
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                border-left: 1px solid #eeeeee;
+            }
+            .butto {
+                margin-left: 10px;
+                padding: 0;
+                color: white;
+                margin-top: 15px;
+                width: 170px;
+                background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.77) 1%, #cc972e 91%);
             }
         }
+
     </style>
 </head>
 
@@ -185,32 +306,31 @@
 
                 <div class="container">
                     <div class="content content-with-opacity">
-                        <div style="font-size: 36px;">ONE Container Tracking</div>
-                        <p style="font-size: 14px; margin-bottom: 40px;">TRACK YOUR ONE CONTAINER EASY</p>
-                        <div style="display: flex; justify-content: center;">
+                        <div class="header-cont">ONE Container Tracking</div>
+                        <p class="sub-font">TRACK YOUR ONE CONTAINER EASY</p>
+                        <div class="icon-group">
                             <div style="margin: 10px;" class="card add-animation animation-1">
-                                <div
-                                    style="opacity: 0.5; width: 150px; height: 120px; background-color: #44444460; border: 2px solid #888888; border-radius: 10px; padding: 10px; color: #ffffff;">
-                                    <i style="color: #ffffff; font-size: 58px;" class="oneibis icon-event-confirm"></i>
+                                <div class="icon-container">
+                                    <i style="color: #ffffff;" class="oneibis icon-event-confirm icon-font"></i>
                                     <br> Booking
                                 </div>
                             </div>
                             <div style="margin: 10px;" class="card add-animation animation-2">
                                 <div :class="{'c-normal':select === 'bill', 'c-active': select === 'container'}" @click="select = 'container'">
-                                    <i style="font-size: 58px;" class="oneibis icon-box-3d-50"></i>
+                                    <i class="oneibis icon-box-3d-50 icon-font"></i>
                                     <br> Container
                                 </div>
                             </div>
                             <div style="margin: 10px;" class="card add-animation animation-3">
                                 <div :class="{'c-normal':select === 'container', 'c-active': select === 'bill'}" @click="select = 'bill'">
-                                    <i style="font-size: 58px;" class="oneibis icon-cheque-3"></i>
+                                    <i class="oneibis icon-cheque-3 icon-font"></i>
                                     <br> Bill of Lading
                                 </div>
                             </div>
                         </div>
 
                         <div style="display: flex; justify-content: center; margin-top: 20px;">
-                            <div style="padding: 15px; background-color: #00000080; border-radius: 15px;">
+                            <div class="bordx">
 
                                 <input v-show="select === 'container'" name="container"
                                        style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;" v-model="tracking"
@@ -218,8 +338,7 @@
                                 <input v-show="select === 'bill'" name="container"
                                        style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;"
                                        placeholder="Bill of Lading Number" class="c-input">
-                                <select class="c-input"
-                                        style="padding-left: 25px; margin-left: -5px; width: 230px;border-bottom-left-radius: 0;border-top-left-radius: 0; border-left: 1px solid #eeeeee;"
+                                <select class="c-input chose"
                                         name="cars" id="cars">
                                     <option value="one">ONE</option>
                                     <option value="volvo">APL</option>
@@ -238,12 +357,10 @@
                                     <option value="audi">Yang Ming</option>
                                     <option value="audi">ZIM</option>
                                 </select>
-                                <input v-show="select === 'container'" type="submit" name="submit" value="Track Container" class="c-input"
-                                       style="margin-left: 10px; padding: 0; color: white; width: 200px; background-image: linear-gradient(45deg,rgba(0,0,0,0.77) 1%,#cc972e 91%);"
+                                <input v-show="select === 'container'" type="submit" name="submit" value="Track Container" class="c-input butto"
                                        @click="submit()"
                                        id="submit-id-submit">
-                                <input v-show="select === 'bill'" type="submit" name="submit" value="Track BL" class="c-input"
-                                       style="margin-left: 10px; padding: 0; color: white; width: 200px; background-image: linear-gradient(45deg,rgba(0,0,0,0.77) 1%,#cc972e 91%);"
+                                <input v-show="select === 'bill'" type="submit" name="submit" value="Track BL" class="c-input butto"
                                        id="submit-id-submit">
                             </div>
                         </div>

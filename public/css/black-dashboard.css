@@ -32470,6 +32470,14 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
   content: "\EA33";
 }
 
+.icon-tags-stack-2::before {
+  content: "\EA34";
+}
+
+.icon-distance-2::before {
+  content: "\EA35";
+}
+
 /* --------------------------------
 
 Eec Line Web Font
@@ -32479,8 +32487,8 @@ Generated using nucleoapp.com
 
 @font-face {
   font-family: 'Eec Line';
-  src: url("/fonts/Eec Line.eot?5753af63ad4941ea6e5dde68e853bc20");
-  src: url("/fonts/Eec Line.eot?5753af63ad4941ea6e5dde68e853bc20") format("embedded-opentype"), url("/fonts/Eec Line.woff2?14ed5a94d230e81f676b1f4b56190a5c") format("woff2"), url("/fonts/Eec Line.woff?f70c34e4f5c3e38e42ba6cbcbe85134f") format("woff"), url("/fonts/Eec Line.ttf?b6505f5bec95430c49877dcf563edb0e") format("truetype"), url("/fonts/Eec Line.svg?f7e27265e1339921b603a67d2232b7b6") format("svg");
+  src: url("/fonts/Eec Line.eot?ef2d31e4fadb1291eae8c90b2bb69e43");
+  src: url("/fonts/Eec Line.eot?ef2d31e4fadb1291eae8c90b2bb69e43") format("embedded-opentype"), url("/fonts/Eec Line.woff2?9e5ae43b939765f8230139ca73063676") format("woff2"), url("/fonts/Eec Line.woff?2634368306bc682915a8da00da562b88") format("woff"), url("/fonts/Eec Line.ttf?8abe01db423f5eefeb9a2fde48048670") format("truetype"), url("/fonts/Eec Line.svg?453d4c26b49b188abe82156b4e8c74e2") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -32786,6 +32794,14 @@ Generated using nucleoapp.com
 
 .icon-pin-3::before {
   content: "\EA33";
+}
+
+.icon-tags-stack-2::before {
+  content: "\EA34";
+}
+
+.icon-distance-2::before {
+  content: "\EA35";
 }
 
 /*------------------------

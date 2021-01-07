@@ -14,16 +14,16 @@
         <topbutton text="Back" link="/movement"></topbutton>
 
         <wizard @update="update" title="Edit Movement" description="Edit an existing movement in our system.">
-            <wizard-tab name="about" icon="tim-icons icon-istanbul">
+            <wizard-tab name="movement" icon="eec-icons icon-distance">
                 <h5 class="info-text"> Fill in to create fake movement.</h5>
-                <v-form name="movement" class="row justify-content-center mt-5">
+                <v-form name="customer" class="row justify-content-center mt-5">
                     <div class="col-sm-5">
                         <base-input placeholder="Place" field="place" addon-left-icon="tim-icons icon-istanbul"
                                     :vparam="['required']">
                         </base-input>
                     </div>
                     <div class="col-sm-5">
-                        <base-input placeholder="Event" field="event" addon-left-icon="tim-icons icon-caps-small"
+                        <base-input placeholder="Event" field="event" addon-left-icon="eec-icons icon-calendar-event-2"
                                     :vparam="['required']">
                         </base-input>
                     </div>

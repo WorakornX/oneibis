@@ -9,7 +9,7 @@
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="/" class="simple-text logo-mini">
-                <img src="/sideNavLogo.png" alt="app-logo"/>
+                <img src="/img/logo.png" alt="app-logo"/>
             </a>
             <a href="/" class="simple-text logo-normal">
                 {{ __('ONEIBIS') }}
@@ -19,9 +19,9 @@
 
             <side title="Info" icon="eec-icons icon-chart-pie-36-2" href="{{ route('info.index') }}" page="indexDriver" activepage="{{ $activePage }}"></side>
 
-            <side title="Tracking No" icon="eec-icons icon-delivery" href="{{ route('tracking.index') }}" page="indexVehicle" activepage="{{ $activePage }}"></side>
+            <side title="Tracking No" icon="eec-icons icon-tags-stack-2" href="{{ route('tracking.index') }}" page="indexVehicle" activepage="{{ $activePage }}"></side>
 
-            <side title="Movement" icon="eec-icons icon-delivery" href="{{ route('movement.index') }}" page="indexCustomer" activepage="{{ $activePage }}"></side>
+            <side title="Movement" icon="eec-icons icon-distance-2" href="{{ route('movement.index') }}" page="indexCustomer" activepage="{{ $activePage }}"></side>
 
 
         </ul>

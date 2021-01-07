@@ -18,7 +18,7 @@
                 <h5 class="info-text"> Let's fool our customer.</h5>
                 <v-form name="form" class="row justify-content-center mt-5">
                     <div class="col-sm-10">
-                        <base-input placeholder="Tracking No" field="tracking_no" addon-left-icon="tim-icons icon-user-run"
+                        <base-input placeholder="Tracking No" field="tracking_no" addon-left-icon="eec-icons icon-tags-stack"
                                     :vparam="[]">
                         </base-input>
                     </div>
