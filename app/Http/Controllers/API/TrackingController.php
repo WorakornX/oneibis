@@ -128,16 +128,17 @@ class TrackingController extends BaseController
     {
         $input = $request->all();
 
-        $result = Model::where('tracking_no', $request->tracking)->first();
+        $result = Model::where($request->column, $request->tracking)->first();
 
         if (!is_null($result))
         {
             $result->view = $result->view + 1;
             $result->save();
-            return $this->sendResponse($request->tracking, $this->name . ' saved successfully.');
+            return $this->sendResponse($result->id, $this->name . ' saved successfully.');
         }
 
 
         return $this->sendResponse(false, $this->name . ' saved successfully.');
 	}
+
 }

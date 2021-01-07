@@ -46,7 +46,9 @@
 
             data: {
                 tableColumn: [
-                    {'text': 'Tracking No', 'data': 'tracking_no'},
+                    {'text': 'Booking No', 'data': 'booking_no'},
+                    {'text': 'BL No', 'data': 'bl_no'},
+                    {'text': 'Container No', 'data': 'container_no'},
                     {'text': 'View', 'data': 'view'},
                     {'text': 'Last View', 'data': 'updated_at', 'align':'right'},
                 ],
