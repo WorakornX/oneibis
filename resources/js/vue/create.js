@@ -19,13 +19,10 @@ require('../vuelidate.js');
 Vue.use(VueKonva);
 
 import DatePicker from 'v-calendar/lib/components/date-picker.umd'
-import VueTimepicker from 'vue2-timepicker'
 
 // CSS
-import 'vue2-timepicker/dist/VueTimepicker.css'
 Vue.component('konva', require('./components/Konva.vue').default);
 
-Vue.component('vue-timepicker', VueTimepicker);
 Vue.component('date-picker', DatePicker);
 Vue.component('select-box', require('./components/SelectBox').default);
 Vue.component('base-input', require('./components/BaseInput.vue').default);

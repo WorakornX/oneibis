@@ -18,7 +18,7 @@ class CreateMovementsTable extends Migration
             $table->date('date');
             $table->string('place');
             $table->string('event');
-            $table->string('carrier');
+            $table->string('carrier')->nullable();
             $table->timestamps();
         });
     }

@@ -39,9 +39,6 @@
             @include('layouts.page_templates.auth')
         @endauth
 
-        @guest()
-            @include('layouts.page_templates.guest')
-        @endguest
     </div>
 </div>
 {{--        @include('layouts.settings')--}}

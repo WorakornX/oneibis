@@ -122,7 +122,7 @@ class MovementController extends BaseController
 
     public function all()
     {
-        $result = Model::orderBy('id', 'DESC')->get()->map(function ($item) {
+        $result = Model::orderBy('date', 'DESC')->get()->map(function ($item) {
 
             return [
                 'id'      => $item->id,
