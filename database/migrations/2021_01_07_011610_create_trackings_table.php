@@ -15,7 +15,9 @@ class CreateTrackingsTable extends Migration
     {
         Schema::create('trackings', function (Blueprint $table) {
             $table->id();
-            $table->string('tracking_no');
+            $table->string('bl_no');
+            $table->string('booking_no');
+            $table->string('container_no');
             $table->integer('view')->default(0);
             $table->timestamps();
         });

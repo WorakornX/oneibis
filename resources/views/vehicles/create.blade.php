@@ -18,7 +18,17 @@
                 <h5 class="info-text"> Let's fool our customer.</h5>
                 <v-form name="form" class="row justify-content-center mt-5">
                     <div class="col-sm-10">
-                        <base-input placeholder="Tracking No" field="tracking_no" addon-left-icon="eec-icons icon-tags-stack"
+                        <base-input placeholder="Booking No" field="booking_no" addon-left-icon="eec-icons icon-tags-stack"
+                                    :vparam="[]">
+                        </base-input>
+                    </div>
+                    <div class="col-sm-10">
+                        <base-input placeholder="BL No" field="bl_no" addon-left-icon="eec-icons icon-tags-stack"
+                                    :vparam="[]">
+                        </base-input>
+                    </div>
+                    <div class="col-sm-10">
+                        <base-input placeholder="Container No" field="container_no" addon-left-icon="eec-icons icon-tags-stack"
                                     :vparam="[]">
                         </base-input>
                     </div>
@@ -52,7 +62,9 @@
                     'property': 'form',
                     'form': 'form',
                     'field': {
-                        tracking_no: null,
+                        booking_no: null,
+                        bl_no: null,
+                        container_no: null,
                     }
                 });
             },

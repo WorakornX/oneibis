@@ -310,19 +310,19 @@
                         <p class="sub-font">TRACK YOUR ONE CONTAINER EASY</p>
                         <div class="icon-group">
                             <div style="margin: 10px;" class="card add-animation animation-1">
-                                <div class="icon-container">
-                                    <i style="color: #ffffff;" class="oneibis icon-event-confirm icon-font"></i>
+                                <div :class="{'c-normal':select !== 'booking', 'c-active': select === 'booking'}" @click="select = 'booking'">
+                                    <i class="oneibis icon-event-confirm icon-font"></i>
                                     <br> Booking
                                 </div>
                             </div>
                             <div style="margin: 10px;" class="card add-animation animation-2">
-                                <div :class="{'c-normal':select === 'bill', 'c-active': select === 'container'}" @click="select = 'container'">
+                                <div :class="{'c-normal':select !== 'container', 'c-active': select === 'container'}" @click="select = 'container'">
                                     <i class="oneibis icon-box-3d-50 icon-font"></i>
                                     <br> Container
                                 </div>
                             </div>
                             <div style="margin: 10px;" class="card add-animation animation-3">
-                                <div :class="{'c-normal':select === 'container', 'c-active': select === 'bill'}" @click="select = 'bill'">
+                            <div :class="{'c-normal':select !== 'bill', 'c-active': select === 'bill'}" @click="select = 'bill'">
                                     <i class="oneibis icon-cheque-3 icon-font"></i>
                                     <br> Bill of Lading
                                 </div>
@@ -332,11 +332,14 @@
                         <div style="display: flex; justify-content: center; margin-top: 20px;">
                             <div class="bordx">
 
+                                <input v-show="select === 'booking'" name="container"
+                                       style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;" v-model="booking_no"
+                                       placeholder="Booking Number" class="c-input">
                                 <input v-show="select === 'container'" name="container"
-                                       style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;" v-model="tracking"
+                                       style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;" v-model="container_no"
                                        placeholder="Container Number" class="c-input">
                                 <input v-show="select === 'bill'" name="container"
-                                       style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;"
+                                       style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;" v-model="bl_no"
                                        placeholder="Bill of Lading Number" class="c-input">
                                 <select class="c-input chose"
                                         name="cars" id="cars">
@@ -357,10 +360,14 @@
                                     <option value="audi">Yang Ming</option>
                                     <option value="audi">ZIM</option>
                                 </select>
+                                <input v-show="select === 'booking'" type="submit" name="submit" value="Track Booking" class="c-input butto"
+                                       @click="submit('booking_no')"
+                                       id="submit-id-submit">
                                 <input v-show="select === 'container'" type="submit" name="submit" value="Track Container" class="c-input butto"
-                                       @click="submit()"
+                                       @click="submit('container_no')"
                                        id="submit-id-submit">
                                 <input v-show="select === 'bill'" type="submit" name="submit" value="Track BL" class="c-input butto"
+                                       @click="submit('bl_no')"
                                        id="submit-id-submit">
                             </div>
                         </div>
@@ -665,7 +672,7 @@
                             <ul>
                                 <li>
                                     <a href="/">
-                                        Home
+                                        OCEAN NETWORK EXPRESS (THAILAND) LTD.
                                     </a>
                                 </li>
                             </ul>
@@ -699,10 +706,9 @@
                             <ul>
                                 <li>
                                     <a name="#" style="cursor: default;">
-                                        520 - 3rd Avenue SW Suite 1900,
-                                        Calgary, AB, Cananda
-                                        T2P 0R3
-                                    </a>
+                                        319 Chamchuri Square Building, 28th Floor,
+                                        Phayathai Road, Pathumwan Bangkok 10330
+                                        THAILAND                                    </a>
                                 </li>
 
                             </ul>
@@ -721,7 +727,7 @@
                                 </li>
                                 <li>
                                     <a name="tel:+66942944299">
-                                        Phone: +1 213 438 9919
+                                        Phone: +66(0)-2097-1111
                                     </a>
                                 </li>
                             </ul>
@@ -731,7 +737,7 @@
             </div>
             <hr>
             <div class="copyright">
-                © 2021 OCEAN NETWORK EXPRESS - All Rights Reserved
+                © 2019 OCEAN NETWORK EXPRESS - All Rights Reserved
             </div>
         </div>
     </footer>
@@ -744,12 +750,14 @@
         el: '#app',
         data: {
             select: 'container',
-            tracking: null,
+            bl_no: null,
+            booking_no: null,
+            container_no: null,
             loading: false,
         },
         methods: {
-            submit() {
-                if (this.tracking) {
+            submit(param) {
+                if (this[param]) {
                     this.loading = true;
                     new Promise(function (resolve, reject) {
                         setTimeout(function () {
@@ -757,7 +765,7 @@
                         }, 2000);
                     })
                         .then(response => {
-                            axios.post('/api/tracking/crud/search', {'tracking': this.tracking})
+                            axios.post('/api/tracking/crud/search', {'tracking': this[param], 'column': param})
                                 .then(response => {
                                     this.loading = false;
                                     console.log(response.data.data);
