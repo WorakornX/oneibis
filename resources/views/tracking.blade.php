@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="/img/oneibis.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>One Tracking</title>
+    <title>One Ibis Vessel Tracking</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
