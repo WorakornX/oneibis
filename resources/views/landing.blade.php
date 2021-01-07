@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="/img/oneibis.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>One Tracking</title>
+    <title>One Ibis Vessel Tracking</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
@@ -249,7 +249,7 @@
                     <span class="icon-bar bar3"></span>
                 </button>
                 <a href="/" class="navbar-brand" role="logo">
-                    One Tracking
+                    One Ibis Vessel Track
                 </a>
             </div>
 
@@ -396,7 +396,7 @@
                         <p class="add-animation animation-1">One container tracking by OneIBIS allows you to track & trace One containers just by one click. In addition
                             to
                             container movements, the current location of the vessel will be shown on the world map automatically. </p>
-                        <p class="add-animation animation-2">One tracking is now more convenient by the OneIBIS container tracking service. You can trace any container or
+                        <p class="add-animation animation-2">One ibis vessel track is now more convenient by the OneIBIS container tracking service. You can trace any container or
                             cargo with the One container number that is a unique number written on the body of the container. This is a reference for identifying and
                             tracking One containers.</p>
                     </div>
