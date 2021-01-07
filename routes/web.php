@@ -29,7 +29,7 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('/container_tracking/{tracking_number}', 'TrackingPageController@show');
+Route::get('/container_tracking/{slug}', 'TrackingPageController@show');
 //Route::get('/', 'Auth\LoginController@showLoginForm');
 Auth::routes();
 

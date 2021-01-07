@@ -15,6 +15,7 @@ class Tracking extends Model
         'booking_no',
         'container_no',
         'view',
+        'slug',
     ];
 
     public function index()
@@ -28,6 +29,7 @@ class Tracking extends Model
                 'container_no' => $item->container_no,
                 'view'         => $item->view,
                 'id'           => $item->id,
+                'slug'           => $item->slug,
                 'updated_at'   => ($item->created_at == $item->updated_at) ? '-' : $item->updated_at->shortRelativeToNowDiffForHumans(),
             ]];
         });

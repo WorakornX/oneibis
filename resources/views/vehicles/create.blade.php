@@ -23,12 +23,12 @@
                         </base-input>
                     </div>
                     <div class="col-sm-10">
-                        <base-input placeholder="BL No" field="bl_no" addon-left-icon="eec-icons icon-tags-stack"
+                        <base-input placeholder="Container No" field="container_no" addon-left-icon="eec-icons icon-tags-stack"
                                     :vparam="[]">
                         </base-input>
                     </div>
                     <div class="col-sm-10">
-                        <base-input placeholder="Container No" field="container_no" addon-left-icon="eec-icons icon-tags-stack"
+                        <base-input placeholder="BL No" field="bl_no" addon-left-icon="eec-icons icon-tags-stack"
                                     :vparam="[]">
                         </base-input>
                     </div>

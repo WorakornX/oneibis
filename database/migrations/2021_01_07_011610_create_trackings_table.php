@@ -18,6 +18,7 @@ class CreateTrackingsTable extends Migration
             $table->string('bl_no');
             $table->string('booking_no');
             $table->string('container_no');
+            $table->string('slug');
             $table->integer('view')->default(0);
             $table->timestamps();
         });

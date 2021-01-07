@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\API\TrackingController;
+use App\Tracking;
 use Illuminate\Http\Request;
+use JavaScript;
 
 class TrackingPageController extends Controller
 {
@@ -44,8 +46,14 @@ class TrackingPageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
+        $model = Tracking::where('slug', $slug)->first();
+
+        JavaScript::put([
+            'tracking' => $model,
+        ]);
+
         return view('tracking');
 //        $trackingController = new TrackingController();
 //
