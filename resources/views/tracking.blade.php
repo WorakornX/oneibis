@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="/img/oneibis.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>One Tracking</title>
+    <title>One Ibis Vessel Tracking</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
@@ -203,11 +203,13 @@
                 </div>
 
                 <div class="section">
-                    <img src="/" alt="">
+                    <div class="card border-light" >
+                        <img style="border-radius: 3px;" src="/img/540281.jpg" alt="ONE IBIS">
+                    </div>
                 </div>
 
                 <div class="section">
-                    <h4>Container  movements</h4>
+                    <h4>Container movements</h4>
                     <div class="card border-light mb-3" style="max-width: 1000px; border-radius: 10px;">
                         <table class="table table-striped">
                             <thead>
@@ -345,7 +347,7 @@
                             <ul>
                                 <li>
                                     <a href="/">
-                                        Home
+                                        OCEAN NETWORK EXPRESS (THAILAND) LTD.
                                     </a>
                                 </li>
                             </ul>
@@ -379,10 +381,9 @@
                             <ul>
                                 <li>
                                     <a name="#" style="cursor: default;">
-                                        520 - 3rd Avenue SW Suite 1900,
-                                        Calgary, AB, Cananda
-                                        T2P 0R3
-                                    </a>
+                                        319 Chamchuri Square Building, 28th Floor,
+                                        Phayathai Road, Pathumwan Bangkok 10330
+                                        THAILAND                                    </a>
                                 </li>
 
                             </ul>
@@ -401,7 +402,7 @@
                                 </li>
                                 <li>
                                     <a name="tel:+66942944299">
-                                        Phone: +1 213 438 9919
+                                        Phone: +66(0)-2097-1111
                                     </a>
                                 </li>
                             </ul>
@@ -411,7 +412,7 @@
             </div>
             <hr>
             <div class="copyright">
-                © 2021 OCEAN NETWORK EXPRESS - All Rights Reserved
+                © 2019 OCEAN NETWORK EXPRESS - All Rights Reserved
             </div>
         </div>
     </footer>
