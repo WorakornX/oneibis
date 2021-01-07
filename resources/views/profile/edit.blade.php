@@ -132,36 +132,6 @@
                     </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xxl-8 col-xl-10 col-md-12">
-
-                    <div class="card ">
-                        <div class="card-header card-header-icon card-header-primary">
-                            <div class="card-icon">
-                                <i class="material-icons">link</i>
-                            </div>
-                            <h4 class="card-title">Social Link
-                            </h4>
-                        </div>
-                        <div class="card-body ">
-                            <div class="row">
-                                <label class="col-sm-2 col-form-label text-right"><i style="color: #3bc300; font-size: 50px;" class="fab fa-line"></i></label>
-
-                                <div class="col-sm-7 col-form-label" style="padding-top: 12px;">
-                                    @if (!auth()->user()->lineId)
-                                        <a href="/lineLogin" class="btn btn-sm">{{ __('Link') }}</a>
-                                    @endif
-                                    @if (auth()->user()->lineId)
-                                        <a href="#" class="btn btn-sm btn-primary">{{ __('Linked') }}</a>
-                                    @endif
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
