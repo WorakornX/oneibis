@@ -347,7 +347,7 @@
                             <ul>
                                 <li>
                                     <a href="/">
-                                        Home
+                                        OCEAN NETWORK EXPRESS (THAILAND) LTD.
                                     </a>
                                 </li>
                             </ul>
@@ -381,10 +381,9 @@
                             <ul>
                                 <li>
                                     <a name="#" style="cursor: default;">
-                                        520 - 3rd Avenue SW Suite 1900,
-                                        Calgary, AB, Cananda
-                                        T2P 0R3
-                                    </a>
+                                        319 Chamchuri Square Building, 28th Floor,
+                                        Phayathai Road, Pathumwan Bangkok 10330
+                                        THAILAND                                    </a>
                                 </li>
 
                             </ul>
@@ -403,7 +402,7 @@
                                 </li>
                                 <li>
                                     <a name="tel:+66942944299">
-                                        Phone: +1 213 438 9919
+                                        Phone: +66(0)-2097-1111
                                     </a>
                                 </li>
                             </ul>
@@ -413,7 +412,7 @@
             </div>
             <hr>
             <div class="copyright">
-                © 2021 OCEAN NETWORK EXPRESS - All Rights Reserved
+                © 2019 OCEAN NETWORK EXPRESS - All Rights Reserved
             </div>
         </div>
     </footer>
