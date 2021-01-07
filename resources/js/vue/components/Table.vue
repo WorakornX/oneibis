@@ -8,7 +8,7 @@
             <table class="table">
                 <thead class=" text-primary">
                 <tr :class="{'scrollable': rowScrollable}">
-                    <th v-for="(column, index) in columns" :key="index"  :style="getHeaderStyle(column.data, column.notSortable)"
+                    <th v-for="(column, index) in columns" :key="index" :style="getHeaderStyle(column.data, column.notSortable)"
                         :class="'text-'+column.align" @click="sort(column.data)">
                         {{column.text}}
                     </th>
@@ -80,6 +80,16 @@
                             <!--                            </button>-->
                         </div>
 
+                        <div v-if="(column.type === 'actiond')">
+                            <a type="button" rel="tooltip" class="btn btn-success btn-link btn-sm btn-icon " data-original-title="Tooltip on top" title="Edit"
+                               @click.stop="" :href="'/'+property+'/'+datum.id+'/edit'">
+                                <i class="tim-icons icon-pencil"></i>
+                            </a>
+                            <button type="button" rel="tooltip" class="btn btn-danger btn-link btn-sm " data-original-title="Tooltip on top" title="Delete">
+                                <i class="tim-icons icon-simple-remove"></i>
+                            </button>
+                        </div>
+
                         <!--                        custom-->
 
                         <div v-if="(column.type === 'custom')">
@@ -109,7 +119,7 @@
             columns: {required: true},
             allowselect: {default: false},
             rowscrollableonselect: {default: false},
-            filterable:{default: true},
+            filterable: {default: true},
             url: {required: false},
         },
         data() {
@@ -158,8 +168,8 @@
                     this.rowScrollable = value;
                 }
             },
-            searchBar(value){
-                if (this.filterable){
+            searchBar(value) {
+                if (this.filterable) {
                     this.$store.commit('filter', this.property);
                 }
             },
