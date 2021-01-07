@@ -49,7 +49,7 @@ class TrackingController extends BaseController
 		}
 
 
-		$response = Model::create($input);
+		$response = Model::create(array_merge($input,["slug"=> $this->generateRandomString()]));
 
 
 		return $this->sendResponse($response, $this->name . ' saved successfully.');
@@ -134,11 +134,20 @@ class TrackingController extends BaseController
         {
             $result->view = $result->view + 1;
             $result->save();
-            return $this->sendResponse($result->id, $this->name . ' saved successfully.');
+            return $this->sendResponse($result->slug, $this->name . ' saved successfully.');
         }
 
 
         return $this->sendResponse(false, $this->name . ' saved successfully.');
 	}
 
+    function generateRandomString($length = 20) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 }
