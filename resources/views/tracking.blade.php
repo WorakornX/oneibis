@@ -152,19 +152,19 @@
 
                         <div class="card-body ">
                             <div class="row">
-                                <div class="col-4"> Tracking details for Container</div>
+                                <div class="col-4"> Booking Number</div>
                                 <div class="col-1">:</div>
-                                <div class="col"></div>
+                                <div class="col">@{{ tracking.booking_no }}</div>
                             </div>
                             <div class="row">
-                                <div class="col-4"> Booking details for Container</div>
+                                <div class="col-4"> Container Number </div>
                                 <div class="col-1">:</div>
-                                <div class="col"></div>
+                                <div class="col">@{{ tracking.container_no }}</div>
                             </div>
                             <div class="row">
-                                <div class="col-4"> BL No. details for Container</div>
+                                <div class="col-4"> Bill of Lading Number</div>
                                 <div class="col-1">:</div>
-                                <div class="col"></div>
+                                <div class="col">@{{ tracking.bl_no }}</div>
                             </div>
                             <div class="pt-3 text-right">
 
@@ -433,6 +433,7 @@
             loading: false,
             speed: null,
             movement: null,
+            tracking
         },
 
         watch: {},
@@ -441,7 +442,6 @@
         created() {
             this.getDetail();
             this.getMovement();
-            this.getTrackingDetail();
         },
 
         mounted() {
