@@ -13,6 +13,8 @@ $icon-ic_phone_48px: unicode(ea06);
 $icon-letter: unicode(ea07);
 $icon-copyright: unicode(ea08);
 $icon-arrow-e: unicode(ea09);
+$icon-handshake: unicode(ea0a);
+$icon-money-time: unicode(ea0b);
 
 .icon-loop::before {
   content: $icon-loop;
@@ -44,5 +46,13 @@ $icon-arrow-e: unicode(ea09);
 
 .icon-arrow-e::before {
   content: $icon-arrow-e;
+}
+
+.icon-handshake::before {
+  content: $icon-handshake;
+}
+
+.icon-money-time::before {
+  content: $icon-money-time;
 }
 

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <link rel="shortcut icon" href="/eecl-logo-1-color-02.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/oneibis.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
-    <title>EEC LINE Co., Ltd. </title>
+    <title>One Tracking</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
@@ -16,112 +16,192 @@
           integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="{{ mix('css/landing-font.css') }}">
     <link rel="stylesheet" href="{{ mix('css/landing-icon.css') }}">
     <style>
 
         .navbar-logo {
-            background-image: url('/img/EECL-Logo-narrow.png');
-            background-size: 100px;
+            background-image: url('/img/oneibis.png');
+            background-size: 70px;
             background-repeat: no-repeat;
-            margin-top: 15px !important;
+            margin-top: 5px !important;
+        }
+
+        .c-active {
+            cursor: pointer;
+            width: 150px;
+            height: 120px;
+            background-color: #111111bb;
+            border: 2px solid #c5a47e;
+            border-radius: 10px;
+            padding: 10px;
+            color: #c5a47e;
+        }
+
+        .c-normal {
+            cursor: pointer;
+            width: 150px;
+            height: 120px;
+            background-color: #44444480;
+            border: 2px solid #999999;
+            border-radius: 10px;
+            padding: 10px;
+            color: #ffffff;
+        }
+
+        .c-normal:hover {
+            background-color: #33333380;
+        }
+
+        .c-input {
+            color: #222222;
+            height: 75px;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            padding-left: 50px;
+            width: 350px;
         }
     </style>
 </head>
 
 <body id="skrollr-body">
-{{--  <div class="loading ">--}}
-{{--  <div class="loading-container">--}}
-{{--    <p>Just a sec...</p>--}}
-{{--    <img class="loader" src="assets/img//rubik.svg"/>--}}
-{{--  </div>--}}
-</div>
-<!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
-<nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
 
-    <div class="container">
-        <div class="navbar-header">
-            <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar bar1"></span>
-                <span class="icon-bar bar2"></span>
-                <span class="icon-bar bar3"></span>
-            </button>
-            <a href="/" class="navbar-brand" role="logo">
-                EEC Line
-            </a>
+<div id="app">
+    <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a href="/" class="navbar-brand" role="logo">
+                    One Tracking
+                </a>
+            </div>
+
+            <div class="navbar-scroll-to collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right navbar-uppercase">
+                    <li>
+                        <a href="" data-scroll="true" data-id="#whoWeAre" class="active">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-scroll="true" data-id="#advantage">
+                            Why Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-scroll="true" data-id="#numbers">
+                            Numbers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-scroll="true" data-id="#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                    @auth()
+                        <li>
+                            <a href="/login">
+                                To Console
+                            </a>
+                        </li>
+                    @endauth
+
+                    @guest()
+                        <li>
+                            <a href="/login">
+                                Sign in
+                            </a>
+                        </li>
+                    @endguest
+                </ul>
+            </div><!-- /.navbar-collapse -->
         </div>
-
-        <div class="navbar-scroll-to collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right navbar-uppercase">
-                <li>
-                    <a href="" data-scroll="true" data-id="#whoWeAre" class="active">
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a href="" data-scroll="true" data-id="#services">
-                        Services
-                    </a>
-                </li>
-                <li>
-                    <a href="" data-scroll="true" data-id="#advantage">
-                        Why Us
-                    </a>
-                </li>
-                <li>
-                    <a href="" data-scroll="true" data-id="#numbers">
-                        Numbers
-                    </a>
-                </li>
-                <li>
-                    <a href="" data-scroll="true" data-id="#contact">
-                        Contact
-                    </a>
-                </li>
-
-                @auth()
-                    <li>
-                        <a href="/login">
-                            To Console
-                        </a>
-                    </li>
-                @endauth
-
-                @guest()
-                    <li>
-                        <a href="/login">
-                            Sign in
-                        </a>
-                    </li>
-                @endguest
-                <li class="social-links">
-                    <a href="https://line.me/R/ti/p/%40lww4836w">
-                        <i style="font-weight: normal;" class="fab fa-line"></i>
-                    </a>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div>
-</nav>
+    </nav>
 
 
-<div class="wrapper">
+    <div class="wrapper">
 
-    <div class="section section-header">
-        <div class="full-image pattern-image">
-            <img src="/img/All-com.jpg"/>
-            {{--            <img src="/images/bg-1-2000x938 origin.jpg"/>--}}
+        <div class="section section-header">
+            <div class="full-image pattern-image">
+                <img src="https://www.one-line.com/sites/g/files/lnzjqr776/files/inline-images/bg.jpg"/>
+                {{--            <img src="/images/bg-1-2000x938 origin.jpg"/>--}}
 
-            <div class="container">
-                <div class="content content-with-opacity">
-                    <p>EEC Line Company Limited
-                    <p>
-                        <img style="width: 500px; margin-top: 25px;" src="/img/EECL-Logo-White-narrow.png"/>
-                    <div class="separator-container">
-                        <div style="width: 30em;" class="separator line-separator">⌘</div>
+                <div class="container">
+                    <div class="content content-with-opacity">
+                        <div style="font-size: 36px;">ONE Container Tracking</div>
+                        <p style="font-size: 14px; margin-bottom: 40px;">TRACK YOUR ONE CONTAINER EASY</p>
+                        <div style="display: flex; justify-content: center;">
+                            <div style="margin: 10px;" class="card add-animation animation-1">
+                                <div
+                                    style="opacity: 0.5; width: 150px; height: 120px; background-color: #44444460; border: 2px solid #888888; border-radius: 10px; padding: 10px; color: #ffffff;">
+                                    <i style="color: #ffffff; font-size: 58px;" class="oneibis icon-event-confirm"></i>
+                                    <br> Booking
+                                </div>
+                            </div>
+                            <div style="margin: 10px;" class="card add-animation animation-2">
+                                <div :class="{'c-normal':select === 'bill', 'c-active': select === 'container'}" @click="select = 'container'">
+                                    <i style="font-size: 58px;" class="oneibis icon-box-3d-50"></i>
+                                    <br> Container
+                                </div>
+                            </div>
+                            <div style="margin: 10px;" class="card add-animation animation-3">
+                                <div :class="{'c-normal':select === 'container', 'c-active': select === 'bill'}" @click="select = 'bill'">
+                                    <i style="font-size: 58px;" class="oneibis icon-cheque-3"></i>
+                                    <br> Bill of Lading
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; margin-top: 20px;">
+                            <div style="padding: 15px; background-color: #00000080; border-radius: 15px;">
+
+                                <input v-show="select === 'container'" name="container"
+                                       style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;"
+                                       placeholder="Container Number" class="c-input">
+                                <input v-show="select === 'bill'" name="container"
+                                       style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;"
+                                       placeholder="Bill of Lading Number" class="c-input">
+                                <select class="c-input"
+                                        style="padding-left: 25px; margin-left: -5px; width: 230px;border-bottom-left-radius: 0;border-top-left-radius: 0; border-left: 1px solid #eeeeee;"
+                                        name="cars" id="cars">
+                                    <option value="one">ONE</option>
+                                    <option value="volvo">APL</option>
+                                    <option value="saab">CMA CGM</option>
+                                    <option value="opel">COSCO</option>
+                                    <option value="audi">Hamburg Sud</option>
+                                    <option value="audi">Hamburg Sud</option>
+                                    <option value="audi">Hapag-Lloyd</option>
+                                    <option value="audi">HMM</option>
+                                    <option value="audi">IRISL</option>
+                                    <option value="audi">Maersk</option>
+                                    <option value="audi">MSC</option>
+                                    <option value="audi">OOCL</option>
+                                    <option value="audi">PIL</option>
+                                    <option value="audi">Safmarine</option>
+                                    <option value="audi">Yang Ming</option>
+                                    <option value="audi">ZIM</option>
+                                </select>
+                                <input v-show="select === 'container'" type="submit" name="submit" value="Track Container" class="c-input"
+                                       style="margin-left: 10px; padding: 0; color: white; width: 200px; background-image: linear-gradient(45deg,rgba(0,0,0,0.77) 1%,#cc972e 91%);"
+                                       id="submit-id-submit">
+                                <input v-show="select === 'bill'" type="submit" name="submit" value="Track BL" class="c-input"
+                                       style="margin-left: 10px; padding: 0; color: white; width: 200px; background-image: linear-gradient(45deg,rgba(0,0,0,0.77) 1%,#cc972e 91%);"
+                                       id="submit-id-submit">
+                            </div>
+                        </div>
+
                     </div>
-                    <h5>Next level logistical solutions</h5>
                 </div>
             </div>
         </div>
@@ -142,142 +222,87 @@
                     </div>
 
                     <div class="col-md-7 col-md-offset-1">
-                        <p class="add-animation animation-1">EEC LINE works to resolve all your land transportation needs. Our overland truck service works to provide you
-                            the best complete logistic solutions
-                            when transporting chemicals or general cargo.</p>
-                        <p class="add-animation animation-2">At EECL, we work tirelessly to ensure that your cargo arrives safely and on time to its destination.
-                            Your cargo is safe while on one of our certified trucks. </p>
-                        <p class="add-animation animation-3">Feel free to get in touch with us and tell us about your plans. We think you’ll love working with us.</p>
+                        <p class="add-animation animation-1">One container tracking by OneIBIS allows you to track & trace One containers just by one click. In addition
+                            to
+                            container movements, the current location of the vessel will be shown on the world map automatically. </p>
+                        <p class="add-animation animation-2">One tracking is now more convenient by the OneIBIS container tracking service. You can trace any container or
+                            cargo with the One container number that is a unique number written on the body of the container. This is a reference for identifying and
+                            tracking One containers.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div style="background-color: #efefef;" class="section section-we-made-3 section-with-hover" id="services">
-        <div style="background-color: #efefef; " class="text-area">
-            <div class="title add-animation">
-                <h2>Our Service</h2>
-                <div class="separator-container">
-                    <div class="separator line-separator">✻</div>
-                </div>
-                <p>Our truck operators are trained and experienced in over land chemical transport. They are also experienced with the safe handling of hazard chemicals.
-                    With EECL drivers, you are ensured safe and speedy delivery of shipment across Thailand.</p>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row" id="projectsLine1">
-                <div class="col-md-4">
-                    <div class="project add-animation-stopped animation-1">
-                        <img src="/img/Chemical-10-W_GROUP-com.jpg"/>
-                        <a class="over-area color-2" href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="project_1">
-                            <div class="content">
-                                <h4>10W Chemical Tank</h4>
-                                <p>Click for more detail.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project add-animation-stopped animation-2">
-                        <img src="/img/Chemical-Truck-22-W_GROUP-com.jpg"/>
-                        <a class="over-area color-1" href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="project_2">
-                            <div class="content">
-                                <h4>22W Chemical Tank</h4>
-                                <p>Click for more detail.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project add-animation-stopped animation-3">
-                        <img src="/img/Container-Trailor_GROUP-com.jpg"/>
-                        <a class="over-area color-4 " href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="project_2">
-                            <div class="content">
-                                <h4>22W Flat Bed</h4>
-                                <p>Click for more detail.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project add-animation-stopped animation-1">
-                        <img src="/img/Container-10-W_GROUP-com.jpg"/>
-                        <a class="over-area color-4" href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="project_3">
-                            <div class="content">
-                                <h4>10W Container</h4>
-                                <p>Click for more detail.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project add-animation-stopped animation-2">
-                        <img src="/img/Container-18-W_GROUP-com.jpg"/>
-                        <a class="over-area color-2" href="javascript:void(0)" onClick="rubik.showModal(this)" data-target="project_3">
-                            <div class="content">
-                                <h4>18W Container</h4>
-                                <p>Click for more detail.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project add-animation-stopped animation-3">
-                        <img src="/img/Isotank_GROUP-com.jpg"/>
-                        <a class="over-area color-3" href="#" target="_blank">
-                            <div class="content">
-                                <h4>22W Low Bed</h4>
-                                <p>Click for more detail.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="section section-we-made-3 section-with-hover" id="services">
+        <img style="width: 100vw;" src="https://i.ytimg.com/vi/AMVR-KiBWYs/maxresdefault.jpg"/>
     </div>
 
 
     <div class="section section-we-do-2" id="advantage">
-        <div class="text-area">
-            <div class="container">
-                <div class="row">
-                    <div class="title add-animation">
-                        <h5 class="text-gray">Here's why our customers</h5>
-                        <h2>choose us</h2>
-                        <div class="separator-container">
-                            <div class="separator line-separator">✻</div>
-                        </div>
+        <div class="container">
+            <div class="row">
+                <div class="title add-animation">
+                    <h5 class="text-gray">Here's why our customers</h5>
+                    <h2>love us</h2>
+                    <div class="separator-container">
+                        <div class="separator line-separator">✻</div>
                     </div>
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card add-animation animation-1">
-                                    <div class="icon">
-                                        <i style="color: #c2000b" class="landing-icon icon-money-coins"></i>
-                                    </div>
-                                    <h3>Competitive Pricing</h3>
-                                    <p>A cost effective and comprehensive service that compels customers to return to EECL again and again.</p>
+                </div>
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card add-animation animation-1">
+                                <div class="icon">
+                                    <i style="color: #c5a47e" class="oneibis icon-compass-3"></i>
                                 </div>
+                                <h3>Live location</h3>
+                                <p>of your shipment and its vessel</p>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card add-animation animation-2">
-                                    <div class="icon">
-                                        <i style="color: #c2000b" class="landing-icon icon-time-machine"></i>
-                                    </div>
-                                    <h3>Timely Delivery</h3>
-                                    <p>Knowledgeable and familiar with regional transport routes and local roads, you are ensured safe and speedy delivery of
-                                        shipment.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card add-animation animation-2">
+                                <div class="icon">
+                                    <i style="color: #c5a47e" class="landing-icon icon-time-machine"></i>
                                 </div>
+                                <h3>Vessel schedule</h3>
+                                <p>with arrival departure time and status</p>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card add-animation animation-3">
-                                    <div class="icon">
-                                        <i style="color: #c2000b " class="landing-icon icon-verified"></i>
-                                    </div>
-                                    <h3>Certified Trucks</h3>
-                                    <p>Each truck is certified to transport hazardous chemicals safely and efficiently to its final destination. </p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card add-animation animation-3">
+                                <div class="icon">
+                                    <i style="color: #c5a47e " class="oneibis icon-mobile-chat"></i>
                                 </div>
+                                <h3>Email notification</h3>
+                                <p>on every new status update</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card add-animation animation-1">
+                                <div class="icon">
+                                    <i style="color: #c5a47e" class="oneibis icon-decision-process"></i>
+                                </div>
+                                <h3>Unified data</h3>
+                                <p>across multiple sources</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card add-animation animation-2">
+                                <div class="icon">
+                                    <i style="color: #c5a47e" class="oneibis icon-touch-id"></i>
+                                </div>
+                                <h3>One place</h3>
+                                <p>for all your shipments</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card add-animation animation-3">
+                                <div class="icon">
+                                    <i style="color: #c5a47e " class="oneibis icon-headphones-mic"></i>
+                                </div>
+                                <h3>Online support</h3>
+                                <p>from our shipping experts</p>
                             </div>
                         </div>
                     </div>
@@ -287,8 +312,8 @@
     </div>
 
     <div class="section section-numbers-2" id="numbers">
-        <div class="parallax pattern-image">
-            <img src="assets/img//rubik_background.jpg"/>
+        <div class="parallax pattern-image-2">
+            <img style="width: 100vw;" src="https://www.freightos.com/wp-content/uploads/2016/08/ship_air.jpg"/>
         </div>
         <div class="container">
             <div class="row">
@@ -299,6 +324,7 @@
                             <h2>Numbers don't lie</h2>
                             <div class="separator-container">
                                 <div class="separator line-separator">∎</div>
+                                <p>As the 6th largest container carrier, ONE offers an expeditious and reliable network across the major trade lanes of the world.</p>
                             </div>
                         </div>
                     </div>
@@ -308,28 +334,25 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="card card-plain">
-                        <h3>Customers</h3>
-                        <h5>Enterprises and private</h5>
+                        <h3>TEU fleet size</h3>
                         <div class="number" id="customersNo">
-                            106
+                            1,500,000+
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="card card-plain">
-                        <h3>Licenses</h3>
-                        <h5>Our own, certified licensed truck</h5>
+                        <h3>Port calls</h3>
                         <div class="number" id="projectsNo">
-                            186
+                            200+
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="card card-plain">
-                        <h3>Growth</h3>
-                        <h5>Revenue growth in 3 years</h5>
+                        <h3>Weekly service loops</h3>
                         <div class="number" id="citiesNo">
-                            4x
+                            130
                         </div>
                     </div>
                 </div>
@@ -337,87 +360,87 @@
         </div>
     </div>
 
-    <div class="section section-clients-1" id="clients1">
-        <div class="container">
-            <div class="text-area">
-                <div class="title add-animation">
-                    <h5 class="text-gray">Some of Our</h5>
-                    <h2>Beloved Customers</h2>
-                    <div class="separator-container">
-                        <div class="separator line-separator">✻</div>
-                    </div>
-                </div>
-            </div>
-            <div class="list-logos">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="logo add-animation animation-1">
-                            <a name="#">
-                                <img alt="..." src="/img/svg/ptt.svg"/>
-                                <img alt="..." src="/img/svg/ptt-h.svg"/>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="logo add-animation animation-2">
-                            <a name="#">
-                                <img alt="..." src="/img/svg/ea.svg"/>
-                                <img alt="..." src="/img/svg/ea-h.svg"/>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="logo add-animation animation-3">
-                            <a name="#">
-                                <img alt="..." src="/img/svg/thaimc.svg"/>
-                                <img alt="..." src="/img/svg/thaimc-h.svg"/>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="logo add-animation animation-4">
-                            <a name="#">
-                                <img alt="..." src="/img/svg/ivict.svg"/>
-                                <img alt="..." src="/img/svg/ivict-h.svg"/>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="logo add-animation animation-1">
-                            <a name="#">
-                                <img alt="..." src="/img/svg/toshi.svg"/>
-                                <img alt="..." src="/img/svg/toshi-h.svg"/>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="logo add-animation animation-2">
-                            <a name="#">
-                                <img alt="..." src="/img/svg/samsung.svg"/>
-                                <img alt="..." src="/img/svg/samsung-h.svg"/>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="logo add-animation animation-3">
-                            <a name="#">
-                                <img alt="..." src="/img/svg/irpc.svg"/>
-                                <img alt="..." src="/img/svg/irpc-h.svg"/>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="logo add-animation animation-4">
-                            <a name="#">
-                                <img alt="..." src="/img/svg/bbf.svg"/>
-                                <img alt="..." src="/img/svg/bbf-h.svg"/>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{--    <div class="section section-clients-1" id="clients1">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="text-area">--}}
+    {{--                <div class="title add-animation">--}}
+    {{--                    <h5 class="text-gray">Some of Our</h5>--}}
+    {{--                    <h2>Beloved Customers</h2>--}}
+    {{--                    <div class="separator-container">--}}
+    {{--                        <div class="separator line-separator">✻</div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--            <div class="list-logos">--}}
+    {{--                <div class="row">--}}
+    {{--                    <div class="col-md-3">--}}
+    {{--                        <div class="logo add-animation animation-1">--}}
+    {{--                            <a name="#">--}}
+    {{--                                <img alt="..." src="/img/svg/ptt.svg"/>--}}
+    {{--                                <img alt="..." src="/img/svg/ptt-h.svg"/>--}}
+    {{--                            </a>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                    <div class="col-md-3">--}}
+    {{--                        <div class="logo add-animation animation-2">--}}
+    {{--                            <a name="#">--}}
+    {{--                                <img alt="..." src="/img/svg/ea.svg"/>--}}
+    {{--                                <img alt="..." src="/img/svg/ea-h.svg"/>--}}
+    {{--                            </a>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                    <div class="col-md-3">--}}
+    {{--                        <div class="logo add-animation animation-3">--}}
+    {{--                            <a name="#">--}}
+    {{--                                <img alt="..." src="/img/svg/thaimc.svg"/>--}}
+    {{--                                <img alt="..." src="/img/svg/thaimc-h.svg"/>--}}
+    {{--                            </a>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                    <div class="col-md-3">--}}
+    {{--                        <div class="logo add-animation animation-4">--}}
+    {{--                            <a name="#">--}}
+    {{--                                <img alt="..." src="/img/svg/ivict.svg"/>--}}
+    {{--                                <img alt="..." src="/img/svg/ivict-h.svg"/>--}}
+    {{--                            </a>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                    <div class="col-md-3">--}}
+    {{--                        <div class="logo add-animation animation-1">--}}
+    {{--                            <a name="#">--}}
+    {{--                                <img alt="..." src="/img/svg/toshi.svg"/>--}}
+    {{--                                <img alt="..." src="/img/svg/toshi-h.svg"/>--}}
+    {{--                            </a>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                    <div class="col-md-3">--}}
+    {{--                        <div class="logo add-animation animation-2">--}}
+    {{--                            <a name="#">--}}
+    {{--                                <img alt="..." src="/img/svg/samsung.svg"/>--}}
+    {{--                                <img alt="..." src="/img/svg/samsung-h.svg"/>--}}
+    {{--                            </a>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                    <div class="col-md-3">--}}
+    {{--                        <div class="logo add-animation animation-3">--}}
+    {{--                            <a name="#">--}}
+    {{--                                <img alt="..." src="/img/svg/irpc.svg"/>--}}
+    {{--                                <img alt="..." src="/img/svg/irpc-h.svg"/>--}}
+    {{--                            </a>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                    <div class="col-md-3">--}}
+    {{--                        <div class="logo add-animation animation-4">--}}
+    {{--                            <a name="#">--}}
+    {{--                                <img alt="..." src="/img/svg/bbf.svg"/>--}}
+    {{--                                <img alt="..." src="/img/svg/bbf-h.svg"/>--}}
+    {{--                            </a>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
 
 
     <div class="section section-contact-2" id="contact">
@@ -481,21 +504,6 @@
                                         Home
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="https://account.eecl.co.th">
-                                        Accounting
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://mail.eecl.co.th">
-                                        Web Mail
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/login">
-                                        Truck Management
-                                    </a>
-                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -527,9 +535,9 @@
                             <ul>
                                 <li>
                                     <a name="#" style="cursor: default;">
-                                        47/9 Samnak Ai Ngon,
-                                        Map Kha, Amphoe Nikhom Phatthana,
-                                        Rayong 21180
+                                        520 - 3rd Avenue SW Suite 1900,
+                                        Calgary, AB, Cananda
+                                        T2P 0R3
                                     </a>
                                 </li>
 
@@ -544,17 +552,12 @@
                             <ul>
                                 <li>
                                     <a name="#" style="cursor: default;">
-                                        Email: sales@eecl.co.th
+                                        Email: info@oneibis.com
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="tel:+66942944299">
-                                        Phone: +669 4294 4299
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://line.me/R/ti/p/%40lww4836w">
-                                        LINE
+                                    <a name="tel:+66942944299">
+                                        Phone: +1 213 438 9919
                                     </a>
                                 </li>
                             </ul>
@@ -564,364 +567,28 @@
             </div>
             <hr>
             <div class="copyright">
-                © 2021 EEC LINE Co., Ltd. - All Rights Reserved
+                © 2021 OCEAN NETWORK EXPRESS - All Rights Reserved
             </div>
         </div>
     </footer>
 </div> <!-- end wrapper -->
 
-<div class="project-content" id="project_1">
-    <span class="icon-close"><i class="pe-7s-close-circle"></i></span>
-    <div>
-        <div class="project-details">
-            <div class="container">
-                <div class="project-title">
-                    <h5>PUE, Mexico<span>.</span></h5>
-                    <h2>Sol 52</h2>
-                    <div class="separator-container">
-                        <div class="separator line-separator">∎</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="project-text">
-                            <p><span>Type</span>Private house</p>
-                            <p><span>Status</span>Built</p>
-                            <p><span>Year</span>2013</p>
-                            <p><span>Size</span>1000sqft</p>
-                            <br>
-                            <p>Sol 25 is a house in San Pedro Cholula Puebla, Mexico. Located in a residential subdivision outside of the city, adjacent to Mount
-                                Zapoteca, a protected nature reserve. Sol 25 emerges as a home with the premise of creating spaces that are visually integrated with
-                                nature in addition to maximizing the size of the house.</p>
-                            <p>A distinct architectural layout is generated; located on the ground floor are two bedrooms, a garden, and a lobby. Going up to the first
-                                level is the living room and kitchen, all in an open-plan concept into a double-height space where you can enjoy the view to the green
-                                areas. Going up a level is a loft with a studio. The roof space was allocated to a roof garden where you can enjoy an outdoor environment
-                                that is visually attractive in 360 degrees.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="project-content" id="project_2">
-    <span class="icon-close"><i class="pe-7s-close-circle"></i></span>
-    <div>
-        <div class="project-details">
-            <div class="container">
-                <div class="project-title">
-                    <h5>Positano, Italy<span>.</span></h5>
-                    <h2>Villa Positano</h2>
-                    <div class="separator-container">
-                        <div class="separator line-separator">∎</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="project-text">
-                            <p><span>Type</span>Private house</p>
-                            <p><span>Status</span>Built</p>
-                            <p><span>Year</span>2014</p>
-                            <p><span>Size</span>1500sqft</p>
-                            <br>
-                            <p>The true protagonist of this project is a collection of antique ceramics from Vietri, entrusted with the role of exalting the particular
-                                elements that make the famous Villa in Positano a contemporary architectural masterpiece.</p>
-                            <p>The harmonious composition of hand-painted ceramic tiles, the great passion of the villa’s owners, wraps a long ribbon of steel like a
-                                decorative skin. The ribbon is used to articulate the double height spaces of a former eighteenth-century monastery, linking the villa’s
-                                three levels.</p>
-                            <p>It begins on the ceiling, dropping down a six-meter high wall to become a shelf in the large living room on the first floor, a platform,
-                                intersecting the stairs leading to the kitchen on the ground floor. The ribbon then transforms into the dining room table, finally
-                                climbing back up toward the ceiling to house the lighting fixtures. All without any interruption.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="project-content" id="project_3">
-    <span class="icon-close"><i class="pe-7s-close-circle"></i></span>
-    <div>
-        <div class="project-details">
-            <div class="container">
-                <div class="project-title">
-                    <h5>Sahibzada Ajit Singh Nagar, India<span>.</span></h5>
-                    <h2>House 2413</h2>
-                    <div class="separator-container">
-                        <div class="separator line-separator">∎</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="project-text">
-                            <p><span>Type</span>Private house</p>
-                            <p><span>Status</span>Built</p>
-                            <p><span>Year</span>2014</p>
-                            <p><span>Size</span>3000sqft</p>
-                            <br>
-                            <p>The project is located in Mohali, a satellite town of Chandigarh that is witnessing fast paced growth like most Indian cities.</p>
-                            <p>The brief of the client, a builder was to design a house for selling that would be universal in character so that it is acceptable &
-                                appreciated by all kinds of end users ranging from a high earning professional to a wealthy farmer.</p>
-                            <p>The overall concept was devised as a free plan with overlapping spaces to allow flexibility. However, the movement was choreographed so as
-                                to unfold the layers as one moves along the vertical axis of the house.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="project-content" id="project_4">
-    <span class="icon-close"><i class="pe-7s-close-circle"></i></span>
-    <div>
-        <div class="project-details">
-            <div class="container">
-                <div class="project-title">
-                    <h5>Elwood, Australia<span>.</span></h5>
-                    <h2>The Elwood House</h2>
-                    <div class="separator-container">
-                        <div class="separator line-separator">∎</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="project-text">
-                            <p><span>Type</span>Private house</p>
-                            <p><span>Status</span>Built</p>
-                            <p><span>Year</span>2012</p>
-                            <p><span>Size</span>3000sqft</p>
-                            <br>
-                            <p>The Elwood House is a new residential dwelling with a separate garage and studio to the rear. The client’s brief was for a modern family
-                                home that was interesting and exciting but not to the detriment of the comfort to the occupants and within a sensible budget.</p>
-                            <p>“The client wanted a house that was clean, distinctive and enjoyable to use without feeling like they were an object in their own home
-                                because it was of a contemporary design” says the architect, Patrick Jost.</p>
-                            <p>Conceptually, the house is separated into two clearly defined elements to the upper and lower levels.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="project-content" id="project_5">
-    <span class="icon-close"><i class="pe-7s-close-circle"></i></span>
-    <div>
-        <div class="project-details">
-            <div class="container">
-                <div class="project-title">
-                    <h5>Washington, DC, United States<span>.</span></h5>
-                    <h2>Brandywine House</h2>
-                    <div class="separator-container">
-                        <div class="separator line-separator">∎</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="project-text">
-                            <p><span>Type</span>Private house</p>
-                            <p><span>Status</span>Built</p>
-                            <p><span>Year</span>2013</p>
-                            <p><span>Size</span>4000sqft</p>
-                            <br>
-                            <p>Located within close proximity to Rock Creek Park, and with easy access to the shops and restaurants on Connecticut Avenue, this large lot
-                                in Northwest Washington, DC presented a desirable opportunity for a young family to build a new house in this sought-after
-                                neighborhood.</p>
-                            <p>Designed to respect both the scale of neighboring houses and the rhythm of the streetscape, the project aligns with adjacent houses while
-                                retaining the vast majority of mature trees and green space located between the street and the house. Materials composing the exterior,
-                                which include stone, wood and stucco, evoke traditional materials found throughout the neighborhood. The house appears relatively solid
-                                when viewed from the street with strategically placed windows insuring privacy to the street-facing spaces.</p>
-                            <p>The “L” shaped house is organized around the outdoor living spaces and swimming pool, and is oriented towards the large, south facing rear
-                                yard. </p>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="project-content" id="project_6">
-    <span class="icon-close"><i class="pe-7s-close-circle"></i></span>
-    <div>
-        <div class="project-details">
-            <div class="container">
-                <div class="project-title">
-                    <h5>New York City, NY, United States<span>.</span></h5>
-                    <h2>ICRAVE Office</h2>
-                    <div class="separator-container">
-                        <div class="separator line-separator">∎</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="project-text">
-                            <p><span>Type</span>Office</p>
-                            <p><span>Status</span>Built</p>
-                            <p><span>Year</span>2014</p>
-                            <p><span>Size</span>8000sqft</p>
-                            <br>
-                            <p>After rapid growth, ICRAVE, a New York-based experiential branding and design firm, made the move to an 8,000-square-foot studio with the
-                                intention of really making it their own. The space, designed by the ICRAVE team itself, goes beyond the notion of an open plan office — it
-                                is designed specifically to foster ICRAVE’s immersive, collaborative culture. </p>
-                            <p>The design process was a collective effort of the entire ICRAVE studio. Dream sessions were held to harvest ideas, where team members
-                                examined different areas and said, “Now, what if we could have...,” giving everyone a chance to bring their ideas to the table. Among
-                                those options, ICRAVE then crowdsourced the best solution for each micro-environment, and created a one-of-a-kind office. The result is a
-                                truly collaborative office space that fosters employees' creativity, interaction, and inspiration. </p>
-                            <p>The reception desk doubles as a DJ booth, and the entrance plays host to archery matches. The conference room features large monolithic
-                                doors that swivel 360 degrees to open and close the space as needed. The kitchen and conference room are separated by a chalkboard that
-                                can be raised to create bar seating next to the kitchen or lowered to be used in meetings.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="project-image">
-                                    <img src="assets/img/rubik_background.jpg"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 <!--   core js files    -->
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            select: 'container',
+        },
+        methods: {},
+        created() {
+        },
+        mounted() {
+            console.log('hi');
+        },
+    })
+</script>
 <script src=" {{ mix('/js/landing.js') }}"></script>
 
 </html>

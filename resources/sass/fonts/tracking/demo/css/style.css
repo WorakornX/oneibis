@@ -178,3 +178,11 @@ icons
     content: "\ea09";
 }
 
+.icon-handshake::before {
+    content: "\ea0a";
+}
+
+.icon-money-time::before {
+    content: "\ea0b";
+}
+

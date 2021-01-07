@@ -29,8 +29,8 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('/tracking', function () {
-    return view('tracking');
+Route::get('/container_tracking/{tracking_number}', function ($tracking_number) {
+    return view('tracking')->with('tracking_number', $tracking_number);
 });
 //Route::get('/', 'Auth\LoginController@showLoginForm');
 Auth::routes();
