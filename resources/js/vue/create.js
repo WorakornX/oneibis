@@ -20,6 +20,7 @@ Vue.use(VueKonva);
 
 import DatePicker from 'v-calendar/lib/components/date-picker.umd'
 
+// CSS
 Vue.component('konva', require('./components/Konva.vue').default);
 
 Vue.component('date-picker', DatePicker);

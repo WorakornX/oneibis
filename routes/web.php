@@ -72,8 +72,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('inventory', 'InventoryController');
     Route::resource('places', 'PlaceController');
     Route::resource('replacetires', 'ReplaceTireController');
-    Route::resource('vehicle', 'VehicleController');
-    Route::resource('driver', 'DriverController');
+    Route::resource('tracking', 'VehicleController');
+    Route::resource('info', 'DriverController');
     Route::resource('route', 'RouteController');
     Route::resource('technician', 'TechnicianController');
     Route::resource('approver', 'ApproverController');

@@ -17,6 +17,10 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+            integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ mix('css/landing-font.css') }}">
     <link rel="stylesheet" href="{{ mix('css/landing-icon.css') }}">
     <style>
@@ -64,12 +68,54 @@
             padding-left: 50px;
             width: 350px;
         }
+
+        .loader-20 > div {
+            width: 100%;
+        }
+
+        .loader-20 div > div span {
+            position: fixed;
+            display: inline-block;
+            height: 2px;
+            width: 100%;
+            border-radius: 50px;
+            background-color: #0889FB;
+            overflow: hidden;
+            z-index: 10002;
+        }
+
+        .loader-20 > div > div span:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background-image: linear-gradient(to right, transparent, #333, transparent);
+            animation: 0.7s moving_03 ease-in-out infinite;
+        }
+
+        @keyframes moving_03 {
+            0% {
+                left: -30%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
     </style>
 </head>
 
 <body id="skrollr-body">
 
 <div id="app">
+
+    <div class="loader loader-20" v-if="loading">
+        <div>
+            <div>
+                <span></span>
+            </div>
+        </div>
+    </div>
     <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
     <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
 
@@ -167,7 +213,7 @@
                             <div style="padding: 15px; background-color: #00000080; border-radius: 15px;">
 
                                 <input v-show="select === 'container'" name="container"
-                                       style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;"
+                                       style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;" v-model="tracking"
                                        placeholder="Container Number" class="c-input">
                                 <input v-show="select === 'bill'" name="container"
                                        style="text-transform: uppercase; border-bottom-right-radius: 0;border-top-right-radius: 0;"
@@ -194,6 +240,7 @@
                                 </select>
                                 <input v-show="select === 'container'" type="submit" name="submit" value="Track Container" class="c-input"
                                        style="margin-left: 10px; padding: 0; color: white; width: 200px; background-image: linear-gradient(45deg,rgba(0,0,0,0.77) 1%,#cc972e 91%);"
+                                       @click="submit()"
                                        id="submit-id-submit">
                                 <input v-show="select === 'bill'" type="submit" name="submit" value="Track BL" class="c-input"
                                        style="margin-left: 10px; padding: 0; color: white; width: 200px; background-image: linear-gradient(45deg,rgba(0,0,0,0.77) 1%,#cc972e 91%);"
@@ -580,8 +627,38 @@
         el: '#app',
         data: {
             select: 'container',
+            tracking: null,
+            loading: false,
         },
-        methods: {},
+        methods: {
+            submit() {
+                if (this.tracking) {
+                    this.loading = true;
+                    new Promise(function (resolve, reject) {
+                        setTimeout(function () {
+                            resolve('foo');
+                        }, 2000);
+                    })
+                        .then(response => {
+                            axios.post('/api/tracking/crud/search', {'tracking': this.tracking})
+                                .then(response => {
+                                    this.loading = false;
+                                    console.log(response.data.data);
+                                    if (!response.data.data) {
+                                        swal("Error", "Incorrect Tracking Number!", "error");
+                                    }else{
+                                        window.location.href = "/container_tracking/"+response.data.data;
+                                    }
+                                    resolve(response.data);
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                    reject(error.response);
+                                });
+                        });
+                }
+            }
+        },
         created() {
         },
         mounted() {

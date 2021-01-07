@@ -1,35 +1,32 @@
-@extends('layouts.app', ['activePage' => 'indexVehicle', 'titlePage' => __('Vehicle')])
+@extends('layouts.app', ['activePage' => 'indexVehicle', 'titlePage' => __('Tracking No.')])
 
 @section('content')
 
     <div class="row">
 
-        <breadcrumb :data="[{'text':'Home','href':'/home'}]" active="Vehicle"></breadcrumb>
+        <breadcrumb :data="[{'text':'Home','href':'/home'}]" active="Tracking No."></breadcrumb>
 
-        <topbutton text="Add Vehicle" link="/vehicle/create"></topbutton>
+        <topbutton text="Add Tracking No." link="/tracking/create"></topbutton>
 
-        <card collapseonselect v-show="showIndex">
+        <card v-show="showIndex">
 
-            <cardheader title="Vehicle Lists" count="vehicle">
+            <cardheader title="Tracking No. Lists" count="tracking">
 
                 <gear>
                     <a class="dropdown-item" @click="refresh()" style="cursor: pointer;">Refresh</a>
-                    <a class="dropdown-item" href="/settings/vehicle" style="cursor: pointer;">Settings</a>
-                    <a class="dropdown-item" href="/vehicle_inspection_list" style="cursor: pointer;">Vehicle Inspection</a>
                 </gear>
 
             </cardheader>
 
             <cardbody>
 
-                <darkgrouptable collapseonselect property="vehicle" :columns="tableColumn" :allowselect="true" :rowscrollableonselect="true">
+                <darktable property="tracking" :columns="tableColumn">
 
-                </darkgrouptable>
+                </darktable>
 
             </cardbody>
         </card>
 
-        <vehicledetail></vehicledetail>
 
     </div>
 
@@ -49,11 +46,9 @@
 
             data: {
                 tableColumn: [
-                    {'text': '#', 'type': 'index'},
-                    {'text': 'License', 'data': 'license'},
-                    {'text': 'Type', 'data': 'type'},
-                    {'text': 'Odometer', 'data': 'mileage', 'type': 'sortNumber'},
-                    {'text': 'Action', 'type': 'action', 'data': 'phone', 'align': 'right'},
+                    {'text': 'Tracking No', 'data': 'tracking_no'},
+                    {'text': 'View', 'data': 'view'},
+                    {'text': 'Last View', 'data': 'updated_at', 'align':'right'},
                 ],
                 rowIsSelected: false,
             },

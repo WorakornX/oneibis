@@ -79720,11 +79720,7 @@ Vue.component('loader', __webpack_require__(/*! ./components/Loader.vue */ "./re
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Users/prinpremborirak/Sites/GitHub Desktop/oneibis/resources/js/vue/dashboard.js */"./resources/js/vue/dashboard.js");
-=======
-module.exports = __webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/js/vue/dashboard.js */"./resources/js/vue/dashboard.js");
->>>>>>> 4a20f1e91c56ddeb64dcb3214611bdfc487f5999
 
 
 /***/ })

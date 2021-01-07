@@ -75052,21 +75052,12 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! /Users/prinpremborirak/Sites/GitHub Desktop/oneibis/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/prinpremborirak/Sites/GitHub Desktop/oneibis/resources/sass/app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! /Users/prinpremborirak/Sites/GitHub Desktop/oneibis/resources/sass/landing-icon.scss */"./resources/sass/landing-icon.scss");
 __webpack_require__(/*! /Users/prinpremborirak/Sites/GitHub Desktop/oneibis/resources/sass/material-dashboard-liff.scss */"./resources/sass/material-dashboard-liff.scss");
 __webpack_require__(/*! /Users/prinpremborirak/Sites/GitHub Desktop/oneibis/resources/sass/syncfusion.scss */"./resources/sass/syncfusion.scss");
 module.exports = __webpack_require__(/*! /Users/prinpremborirak/Sites/GitHub Desktop/oneibis/resources/sass/black-dashboard.scss */"./resources/sass/black-dashboard.scss");
-=======
-__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/landing-icon.scss */"./resources/sass/landing-icon.scss");
-__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/material-dashboard-liff.scss */"./resources/sass/material-dashboard-liff.scss");
-__webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/syncfusion.scss */"./resources/sass/syncfusion.scss");
-module.exports = __webpack_require__(/*! /Users/worakorn/Sites/OneIbis/resources/sass/black-dashboard.scss */"./resources/sass/black-dashboard.scss");
->>>>>>> 4a20f1e91c56ddeb64dcb3214611bdfc487f5999
 
 
 /***/ })

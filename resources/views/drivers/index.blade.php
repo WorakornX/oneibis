@@ -1,20 +1,18 @@
-@extends('layouts.app', ['activePage' => 'indexDriver', 'titlePage' => __('Driver')])
+@extends('layouts.app', ['activePage' => 'indexDriver', 'titlePage' => __('Info')])
 
 @section('content')
 
     <div class="row">
 
-        <breadcrumb :data="[{'text':'Home','href':'/home'}]" active="Driver"></breadcrumb>
+        <breadcrumb :data="[{'text':'Home','href':'/home'}]" active="Info"></breadcrumb>
 
-        <topbutton text="Add Driver" link="/driver/create"></topbutton>
+        <topbutton text="Add Info" link="/info/create"></topbutton>
 
-        <card collapseonselect>
+        <card >
 
-            <cardheader count="driver" title="Driver Lists">
+            <cardheader count="info" title="Info Lists">
 
                 <gear>
-                    <a class="dropdown-item" href="{{ route('certificate.index') }}" style="cursor: pointer;">Certificate</a>
-                    <a class="dropdown-item" @click="refreshAvatar()" style="cursor: pointer;">Refresh Avatar</a>
                     <a class="dropdown-item" @click="refresh()" style="cursor: pointer;">Refresh</a>
                 </gear>
 
@@ -22,14 +20,12 @@
 
             <cardbody>
 
-                <darkgrouptable collapseonselect property="driver" :columns="tableColumn" :allowselect="true" :rowscrollableonselect="true">
+                <darktable  property="info" :columns="tableColumn">
 
-                </darkgrouptable>
+                </darktable>
 
             </cardbody>
         </card>
-
-        <driverdetail></driverdetail>
 
     </div>
 
@@ -49,13 +45,13 @@
 
             data: {
                 tableColumn: [
-                    {'text': '#', 'type': 'image', 'data': 'avatar', 'align': 'center', 'notSortable': true},
-                    {'text': 'First Name', 'data': 'firstName'},
-                    {'text': 'Last Name', 'data': 'lastName'},
-                    {'text': 'Vehicle', 'type': 'badge', 'data': 'vehicle'},
-                    {'text': 'Tail', 'type': 'badge', 'data': 'tail'},
-                    {'text': 'Phone', 'data': 'phone'},
-                    {'text': 'Action', 'type': 'action', 'data': 'phone', 'align': 'center', 'notSortable': true},
+                    {'text': 'Latitude', 'data': 'lat'},
+                    {'text': 'Longitude', 'data': 'lng'},
+                    {'text': 'Depart From', 'data': 'from'},
+                    {'text': 'Depart Time', 'data': 'depart'},
+                    {'text': 'Arrive At', 'data': 'to'},
+                    {'text': 'ETA', 'data': 'eta'},
+                    {'text': 'Edit', 'type': 'action', 'data': 'phone', 'align': 'center', 'notSortable': true},
                 ],
                 rowIsSelected: false,
             },
