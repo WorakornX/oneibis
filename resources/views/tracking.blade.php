@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <link rel="shortcut icon" href="/img/oneibis.png"  type="image/x-icon">
+    <link rel="shortcut icon" href="/img/oneibis.png" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
     <title>One Tracking</title>
@@ -26,6 +26,11 @@
     <style>
         a {
             text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: white;
         }
 
         @media (max-width: 600px) {
@@ -143,12 +148,25 @@
 
                 <div class="section">
                     <div class="card border-light mb-3" style="max-width: 1000px; max-height: 350px; border-radius: 10px;">
-                        <div class="card-header">Tracking details for Container: {{$tracking_number}}</div>
-                        <div class="card-body row">
-                            <div class="col">
-                                <h5 class="card-title">Updated an hour ago </h5>
+                        <div class="card-header">Detail</div>
+
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-4"> Tracking details for Container</div>
+                                <div class="col-1">:</div>
+                                <div class="col"></div>
                             </div>
-                            <div class="col text-right">
+                            <div class="row">
+                                <div class="col-4"> Booking details for Container</div>
+                                <div class="col-1">:</div>
+                                <div class="col"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4"> BL No. details for Container</div>
+                                <div class="col-1">:</div>
+                                <div class="col"></div>
+                            </div>
+                            <div class="pt-3 text-right">
 
                                 <button type="button" class="btn btn-outline-primary mr-2" style="width: 100px;">
                                     <a href="#down">
@@ -168,17 +186,24 @@
                         <div class="card-body row">
                             <div class="col">
                                 <div class="card-title">
-                                    The current position of <b>ONE IBIS</b> is at coordinates <b>@{{ detail.lat }} N</b> / <b>@{{ detail.lng }} E</b>, reported an hour ago by AIS.
-                                    The vessel is en route to the port of <b>@{{ detail.from }}</b>, sailing speed <b>@{{ getRandomArbitrary(20,21).toFixed(1) }}</b> knots and expected
+                                    The current position of <b>ONE IBIS</b> is at coordinates <b>@{{ detail.lat }} N</b> / <b>@{{ detail.lng }} E</b>, reported an hour
+                                    ago by AIS.
+                                    The vessel is en route to the port of <b>@{{ detail.from }}</b>, sailing speed <b>@{{ getRandomArbitrary(20,21).toFixed(1) }}</b>
+                                    knots and expected
                                     to arrive there on <b>@{{ detail.eta }}</b>.
                                 </div>
                                 <div>
-                                    The vessel <b>ONE IBIS</b>(IMO: 9741384, MMSI 374815000) is a Container Ship built in 2016 (4 years old) and currently sailing under the flag
+                                    The vessel <b>ONE IBIS</b>(IMO: 9741384, MMSI 374815000) is a Container Ship built in 2016 (4 years old) and currently sailing under
+                                    the flag
                                     <b>Panama</b>.
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="section">
+                    <img src="/" alt="">
                 </div>
 
                 <div class="section">
@@ -203,63 +228,63 @@
                                     @{{ m.carrier }}
                                 </td>
                             </tr>
-{{--                            <tr>--}}
-{{--                                <th scope="row">Fri, January 15, 2021</th>--}}
-{{--                                <td>JEBEL ALI</td>--}}
-{{--                                <td>Container will be delivered to consignee</td>--}}
-{{--                                <td></td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <th scope="row">Thu, January 14, 2021</th>--}}
-{{--                                <td>JEBEL ALI</td>--}}
-{{--                                <td>Container will be discharged from the vessel</td>--}}
-{{--                                <td>--}}
-{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
-{{--                                    HMM ALGECIRAS--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <th scope="row">Fri, January 15, 2021</th>--}}
-{{--                                <td>JEBEL ALI</td>--}}
-{{--                                <td>Vessel will be under operation</td>--}}
-{{--                                <td>--}}
-{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
-{{--                                    HMM ALGECIRAS--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                            <tr class="table-warning">--}}
-{{--                                <th scope="row">Wed, December 16, 2020</th>--}}
-{{--                                <td>ROTTERDAM</td>--}}
-{{--                                <td>Vessel departure time from this port</td>--}}
-{{--                                <td>--}}
-{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
-{{--                                    HMM ALGECIRAS--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <th scope="row">Tue, December 15, 2020</th>--}}
-{{--                                <td>ROTTERDAM</td>--}}
-{{--                                <td>Container was loaded on the vessel</td>--}}
-{{--                                <td>--}}
-{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
-{{--                                    HMM ALGECIRAS--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <th scope="row">Tue, December 08, 2020</th>--}}
-{{--                                <td>ROTTERDAM</td>--}}
-{{--                                <td>Container was located at this place</td>--}}
-{{--                                <td>--}}
-{{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
-{{--                                    HMM ALGECIRAS--}}
-{{--                                </td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <th scope="row">Mon, December 07, 2020</th>--}}
-{{--                                <td>ANTWERP</td>--}}
-{{--                                <td>Empty container was released to shipper for stuffing</td>--}}
-{{--                                <td></td>--}}
-{{--                            </tr>--}}
+                            {{--                            <tr>--}}
+                            {{--                                <th scope="row">Fri, January 15, 2021</th>--}}
+                            {{--                                <td>JEBEL ALI</td>--}}
+                            {{--                                <td>Container will be delivered to consignee</td>--}}
+                            {{--                                <td></td>--}}
+                            {{--                            </tr>--}}
+                            {{--                            <tr>--}}
+                            {{--                                <th scope="row">Thu, January 14, 2021</th>--}}
+                            {{--                                <td>JEBEL ALI</td>--}}
+                            {{--                                <td>Container will be discharged from the vessel</td>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+                            {{--                                    HMM ALGECIRAS--}}
+                            {{--                                </td>--}}
+                            {{--                            </tr>--}}
+                            {{--                            <tr>--}}
+                            {{--                                <th scope="row">Fri, January 15, 2021</th>--}}
+                            {{--                                <td>JEBEL ALI</td>--}}
+                            {{--                                <td>Vessel will be under operation</td>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+                            {{--                                    HMM ALGECIRAS--}}
+                            {{--                                </td>--}}
+                            {{--                            </tr>--}}
+                            {{--                            <tr class="table-warning">--}}
+                            {{--                                <th scope="row">Wed, December 16, 2020</th>--}}
+                            {{--                                <td>ROTTERDAM</td>--}}
+                            {{--                                <td>Vessel departure time from this port</td>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+                            {{--                                    HMM ALGECIRAS--}}
+                            {{--                                </td>--}}
+                            {{--                            </tr>--}}
+                            {{--                            <tr>--}}
+                            {{--                                <th scope="row">Tue, December 15, 2020</th>--}}
+                            {{--                                <td>ROTTERDAM</td>--}}
+                            {{--                                <td>Container was loaded on the vessel</td>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+                            {{--                                    HMM ALGECIRAS--}}
+                            {{--                                </td>--}}
+                            {{--                            </tr>--}}
+                            {{--                            <tr>--}}
+                            {{--                                <th scope="row">Tue, December 08, 2020</th>--}}
+                            {{--                                <td>ROTTERDAM</td>--}}
+                            {{--                                <td>Container was located at this place</td>--}}
+                            {{--                                <td>--}}
+                            {{--                                    <i class="tracking-icon icon-boat-front mt-1"></i>--}}
+                            {{--                                    HMM ALGECIRAS--}}
+                            {{--                                </td>--}}
+                            {{--                            </tr>--}}
+                            {{--                            <tr>--}}
+                            {{--                                <th scope="row">Mon, December 07, 2020</th>--}}
+                            {{--                                <td>ANTWERP</td>--}}
+                            {{--                                <td>Empty container was released to shipper for stuffing</td>--}}
+                            {{--                                <td></td>--}}
+                            {{--                            </tr>--}}
                             </tbody>
                         </table>
                     </div>
